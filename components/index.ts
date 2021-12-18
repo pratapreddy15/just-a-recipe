@@ -1,0 +1,6 @@
+export { default as IconRight } from './IconRight/icon-right'
+export { default as IconLeft } from './IconLeft/icon-left'
+export { default as IconArrowCircleDown } from './IconArrowCircleDown/icon-arrow-circle-down'
+export { default as CarouselCard } from './CarouselCard/carousel-card'
+export { default as Hero } from './Home/Hero/Hero'
+export { default as HeroImage } from './Home/HeroImage/HeroImage'
