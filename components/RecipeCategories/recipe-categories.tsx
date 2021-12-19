@@ -13,8 +13,8 @@ function RecipeCategories(props: { categoriesGallery: RecipeCategoryGallery[] })
       <h3 className={classes.header}>Recipe Categories</h3>
       <div className={classes.grid}>
         <ul className={classes.category__list}>
-          {categoriesGallery.map((cat) => (
-            <li className={classes['category__list--item']}>
+          {categoriesGallery.map((cat, i) => (
+            <li className={classes['category__list--item']} key={i}>
               <RecipeCategory key={cat.id} category={cat.name.toLowerCase()} photos={cat.galleryPhotos} />
             </li>
           ))}
