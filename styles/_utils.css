@@ -1,0 +1,11 @@
+.clear-space {
+  margin: 0;
+  padding: 0;
+}
+
+.vertically-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

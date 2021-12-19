@@ -1,0 +1,72 @@
+.hero {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.heroImages {
+}
+
+.prevImage {
+  left: 5px;
+  z-index: 999;
+}
+
+.nextImage {
+  right: 5px;
+}
+
+.imageNavButton {
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.imageNavButton svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.scrollDownButton {
+  z-index: 999;
+  color: #fff;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scrollDownButton svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 360px) {
+  .imageNavButton svg {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .scrollDownButton svg {
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+  }
+
+  .heroContent {
+    font-size: 1.2rem;
+  }
+
+  .credit {
+    font-size: 1.2rem;
+  }
+}

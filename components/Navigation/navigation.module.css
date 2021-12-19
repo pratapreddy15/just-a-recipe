@@ -1,0 +1,95 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(212, 212, 212, 100%);
+  cursor: auto;
+  transform: scale(0);
+  border-bottom-left-radius: 50%;
+  transform-origin: top right;
+}
+
+.navigation.open {
+  animation-name: navOpenAnimation;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.navigation.close {
+  animation-name: navCloseAnimation;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.navigation__list {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation__list--item {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+}
+
+.navigation__list--item a {
+  color: #ae2012;
+  text-transform: uppercase;
+}
+
+.navigation__list--item a:hover {
+  color: #ff1500;
+}
+
+.btnClose {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.btnClose:active,
+.btnClose:focus {
+  border: none;
+  outline: none;
+}
+
+.closeNavigation {
+  text-align: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+.closeNavigation svg {
+  cursor: pointer;
+}
+
+@keyframes navOpenAnimation {
+  0% {
+    border-bottom-left-radius: 100%;
+    transform: scale(0);
+  }
+  100% {
+    border-bottom-left-radius: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes navCloseAnimation {
+  0% {
+    border-bottom-left-radius: 0;
+    transform: scale(1);
+  }
+  100% {
+    border-bottom-left-radius: 100%;
+    transform: scale(0);
+  }
+}
