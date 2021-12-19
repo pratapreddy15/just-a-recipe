@@ -4,7 +4,7 @@ import path from 'path'
 import * as fs from 'fs/promises'
 import { RecipeCategory, RecipeCategoryGallery } from '../types/recipe'
 
-import { Hero, Bloggers, RecipeCategories } from '../components'
+import { Hero, Bloggers, RecipeCategories, PageFooter } from '../components'
 
 /**
  * xs: 360px
@@ -53,6 +53,7 @@ const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
         <Hero heroContent={props.heroes} />
         <Bloggers bloggers={props.bloggers} />
         <RecipeCategories categoriesGallery={categoriesGallery} />
+        <PageFooter />
       </main>
     </div>
   )

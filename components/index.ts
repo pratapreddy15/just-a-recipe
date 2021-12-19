@@ -8,3 +8,4 @@ export { default as BloggerCard } from './BloggerSection/BloggerCard/blogger-car
 export { default as Bloggers } from './BloggerSection/Bloggers/bloggers'
 export { default as RecipeCategory } from './RecipeCategories/RecipeCategory/recipe-category'
 export { default as RecipeCategories } from './RecipeCategories/recipe-categories'
+export { default as PageFooter } from './PageFooter/page-footer'
