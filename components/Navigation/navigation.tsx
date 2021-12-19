@@ -28,10 +28,10 @@ function Navigation() {
       </div>
       <ul className={classes.navigation__list}>
         <li className={classes['navigation__list--item']}>
-          <Link href="#">Home</Link>
+          <Link href="/">Home</Link>
         </li>
         <li className={classes['navigation__list--item']}>
-          <Link href="#">Categories</Link>
+          <Link href="/categories">Categories</Link>
         </li>
         <li className={classes['navigation__list--item']}>
           <Link href="#">Recipes</Link>

@@ -21,8 +21,8 @@ function RecipeCategories(props: { categoriesGallery: RecipeCategoryGallery[] })
         </ul>
       </div>
       <div className={classes.linkBrowseCategories}>
-        <Link href="#">
-          <a target="_blank">
+        <Link href="/categories">
+          <a>
             Browse all categories <div className={classes.rightArrow}>&#8594;</div>
           </a>
         </Link>
