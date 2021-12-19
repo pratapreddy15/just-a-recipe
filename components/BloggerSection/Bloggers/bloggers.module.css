@@ -1,0 +1,39 @@
+.bloggers {
+  margin: 2rem 6rem;
+}
+
+.header {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 4rem;
+}
+
+.linkTopFoodBlogs {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.linkTopFoodBlogs a {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #ae2012;
+}
+
+.linkTopFoodBlogs a:hover {
+  color: #ff1500;
+}
+
+.linkTopFoodBlogs .rightArrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.linkTopFoodBlogs a:hover .rightArrow {
+  transform: translateX(-2px);
+}

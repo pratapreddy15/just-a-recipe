@@ -1,7 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import path from 'path'
+import * as fs from 'fs/promises'
+import { RecipeCategory, RecipeCategoryGallery } from '../types/recipe'
 
-import { Hero } from '../components'
+import { Hero, Bloggers, RecipeCategories } from '../components'
 
 /**
  * xs: 360px
@@ -12,10 +15,34 @@ import { Hero } from '../components'
  */
 
 interface HomePageProps {
-  heroes: Array<{ imagePath: string; authorName: string; authorUrl: string; content: string[] }>
+  heroes: Array<{ imagePath: string; authorName: string; authorUrl: string; content: string }>
+  bloggers: Array<{ title: string; blogUrl: string; highlight: string; youtubeUrl: string; facebookUrl: string; twitterUrl: string }>
+  featuredCategories: Array<RecipeCategory>
 }
 
 const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
+  const categoriesGallery: RecipeCategoryGallery[] = props.featuredCategories.map((category) => {
+    const photoDirectoryName = category.name.replace(' ', '-')
+    return {
+      id: category.id,
+      name: category.name,
+      galleryPhotos: [
+        {
+          imageSource: `/images/recipe-categories/${photoDirectoryName}/photo-1.jpeg`,
+          imageTitle: 'Gallery Photo 1'
+        },
+        {
+          imageSource: `/images/recipe-categories/${photoDirectoryName}/photo-2.jpeg`,
+          imageTitle: 'Gallery Photo 2'
+        },
+        {
+          imageSource: `/images/recipe-categories/${photoDirectoryName}/photo-3.jpeg`,
+          imageTitle: 'Gallery Photo 3'
+        }
+      ]
+    }
+  })
+
   return (
     <div>
       <Head>
@@ -24,12 +51,19 @@ const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
 
       <main>
         <Hero heroContent={props.heroes} />
+        <Bloggers bloggers={props.bloggers} />
+        <RecipeCategories categoriesGallery={categoriesGallery} />
       </main>
     </div>
   )
 }
 
 export async function getStaticProps() {
+  const featuredCategoriesFilePath = path.join(process.cwd(), 'data', 'recipe-categories.json')
+  const fileContent = await fs.readFile(featuredCategoriesFilePath, { encoding: 'utf-8' })
+  const recipeCategories: RecipeCategory[] = JSON.parse(fileContent)
+  const featuredCategories: RecipeCategory[] = recipeCategories.filter((category) => category.isFeatured)
+
   return {
     props: {
       heroes: [
@@ -37,21 +71,51 @@ export async function getStaticProps() {
           imagePath: '/images/angshu-purkait.jpg',
           authorName: 'Angshu Purkait',
           authorUrl: 'https://unsplash.com/@angshu_purkait?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-          content: ['Bringing all the recipes', "from Feedspot's top 3 Indian bloggers", 'in one place']
+          content: "Bringing all the recipes\nfrom Feedspot's top 3 Indian bloggers\nin one place"
         },
         {
           imagePath: '/images/pranjall-kumar.jpg',
           authorName: 'Pranjall Kumar',
           authorUrl: 'https://unsplash.com/@pranjallk1995?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-          content: ['Thousands of recipes from India', 'and other parts of the world']
+          content: 'Thousands of recipes from India\nand other parts of the world'
         },
         {
           imagePath: '/images/pratiksha-mohanty.jpg',
           authorName: 'Pratiksha Mohanty',
           authorUrl: 'https://unsplash.com/@pratiksha_mohanty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
-          content: ['A collection of', 'vegeterian, non vegeterian,', 'vegan and glutten free', 'recipes']
+          content: 'A collection of\nvegeterian, non vegeterian,\nvegan and glutten free\nrecipes'
         }
-      ]
+      ],
+      bloggers: [
+        {
+          title: "Dassana's Veg Recipes",
+          blogUrl: 'https://www.vegrecipesofindia.com',
+          highlight:
+            'With more than 1800 recipes, this is one of the largest collection of pure Indian vegetarian recipes which are tried and tested and presented with step by step photos.',
+          youtubeUrl: 'https://www.youtube.com/c/DassanasVegRecipes',
+          facebookUrl: 'https://www.facebook.com/dassanasvegrecipes/',
+          twitterUrl: 'https://twitter.com/dassanasrecipes'
+        },
+        {
+          title: "Archana's Kitchen",
+          blogUrl: 'https://www.archanaskitchen.com',
+          highlight:
+            'Giving the world a credible and confident DIY solutions for everyday cooking. Millions of readers using the recipes and videos enhanced with rich content like menu plans, special diets dinner ideas and more.',
+          youtubeUrl: 'https://www.youtube.com/c/Archana-sKitchen',
+          facebookUrl: 'https://www.facebook.com/ArchanasKitchen/',
+          twitterUrl: 'https://twitter.com/archanaskitchen'
+        },
+        {
+          title: "Rak's Kitchen",
+          blogUrl: 'https://rakskitchen.net',
+          highlight:
+            'Find easy-to-learn recipes mainly Indian regional, eggless baking as well as some vegetarian friendly global cuisine. Provides a range of tried and tested recipes which are guaranteed to be delicious.',
+          youtubeUrl: 'https://www.youtube.com/c/Raksanand',
+          facebookUrl: 'https://www.facebook.com/rakskitchen/',
+          twitterUrl: 'https://twitter.com/rakskitchen'
+        }
+      ],
+      featuredCategories: featuredCategories
     }
   }
 }

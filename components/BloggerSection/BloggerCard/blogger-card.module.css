@@ -1,0 +1,45 @@
+.card {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.linkToBlog {
+  color: #ae2012;
+  transition: color 0.25s ease;
+}
+
+.linkToBlog:hover {
+  color: #ff1500;
+}
+
+.highlight {
+  margin: 1rem 2rem 3rem 2rem;
+  font-size: 1.2rem;
+  height: max-content;
+}
+
+.socialMedias {
+  margin-top: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.youtube {
+}
+
+.facebook {
+}
+
+.twitter {
+}

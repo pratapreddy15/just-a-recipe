@@ -1,12 +1,12 @@
 import { HeroImage, IconLeft, IconRight, IconArrowCircleDown } from '../..'
-import classes from './Hero.module.css'
+import classes from './hero.module.css'
 
 interface HeroProps {
   heroContent: Array<{
     imagePath: string
     authorName: string
     authorUrl: string
-    content: string[]
+    content: string
   }>
 }
 
@@ -65,8 +65,12 @@ function Hero(props: HeroProps) {
     return datasets
   }
 
+  function scrollDown() {
+    window.scrollBy(0, window.innerHeight)
+  }
+
   return (
-    <div className={classes.hero}>
+    <section className={classes.hero}>
       <button onClick={showPrevImage} className={`${classes.prevImage} ${classes.imageNavButton} 'clear-space'`}>
         <IconLeft />
       </button>
@@ -89,10 +93,10 @@ function Hero(props: HeroProps) {
       <button onClick={showNextImage} className={`${classes.nextImage} ${classes.imageNavButton} 'clear-space'`}>
         <IconRight />
       </button>
-      <button className={`${classes.scrollDownButton} 'clear-space`}>
+      <button onClick={scrollDown} className={`${classes.scrollDownButton} 'clear-space`}>
         <IconArrowCircleDown />
       </button>
-    </div>
+    </section>
   )
 }
 

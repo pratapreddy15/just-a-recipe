@@ -1,0 +1,82 @@
+.recipeCategories {
+  margin: 4rem 0;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.category__list {
+  padding: 0;
+  margin: 0;
+  padding: 0 3rem;
+  display: grid;
+  row-gap: 3rem;
+  column-gap: 5rem;
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-template-columns: repeat(3, minmax(100px, 340px));
+}
+
+.category__list--item {
+  max-height: 35rem;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 1);
+}
+
+@media screen and (max-width: 1100px) {
+  .category__list {
+    grid-template-columns: repeat(3, minmax(110px, 510px));
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .category__list {
+    grid-template-columns: repeat(2, minmax(110px, 510px));
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .category__list {
+    grid-template-columns: repeat(1, minmax(110px, 300px));
+  }
+}
+
+.linkBrowseCategories {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.linkBrowseCategories a {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #ae2012;
+}
+
+.linkBrowseCategories a:hover {
+  color: #ff1500;
+}
+
+.linkBrowseCategories .rightArrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.linkBrowseCategories a:hover .rightArrow {
+  transform: translateX(-2px);
+}

@@ -1,10 +1,9 @@
 import Image from 'next/image'
-import internal from 'stream'
-import classes from './HeroImage.module.css'
+import classes from './hero-image.module.css'
 
 interface HeroImageProps {
   datasets: { [key: string]: string }
-  content: string[]
+  content: string
   imagePath: string
   authorName: string
   authorUrl: string
@@ -14,7 +13,7 @@ function HeroImage(props: HeroImageProps) {
   return (
     <div {...props.datasets} className={classes.imageContainer}>
       <div className={classes.heroContent}>
-        {props.content.map((text, i) => (
+        {props.content.split('\n').map((text, i) => (
           <span key={i}>{text}</span>
         ))}
       </div>

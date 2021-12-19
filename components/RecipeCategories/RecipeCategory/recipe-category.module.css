@@ -1,0 +1,112 @@
+.recipeCard {
+}
+
+.gallery {
+  position: relative;
+}
+
+.photos {
+  position: relative;
+  height: 20%;
+  display: flex;
+  animation-name: rotate-photos;
+  animation-duration: 6s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+}
+
+.photos-rice {
+  animation-delay: 2s;
+}
+
+.photos-curries {
+  animation-delay: 4s;
+}
+
+.photos-sweets {
+  animation-delay: 6s;
+}
+
+.photos img {
+  height: auto;
+  width: fill-available;
+  width: -webkit-fill-available;
+  object-fit: fill;
+}
+
+.photos.playing {
+  animation-play-state: running;
+}
+
+.photos.paused {
+  animation-play-state: paused;
+}
+
+.imagePlay,
+.imagePaused {
+  display: block;
+  pointer-events: all;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoryName {
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0.2rem 1rem;
+  white-space: nowrap;
+}
+
+.slideshowButton {
+  display: flex;
+  flex-direction: row;
+  margin: 0.2rem 1rem;
+}
+
+.slideshowButton img {
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 350px) {
+  .categoryName {
+    font-size: 0.8rem;
+  }
+
+  .slideshowButton img {
+    height: 25px;
+  }
+}
+
+@keyframes rotate-photos {
+  0% {
+    transform: translateX(0%);
+  }
+  20% {
+    transform: translateX(0%);
+  }
+  40% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-100%);
+  }
+  80% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
