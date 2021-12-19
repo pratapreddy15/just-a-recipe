@@ -1,6 +1,7 @@
 import React, { createContext, ReactNode, useState } from 'react'
 
 export enum NAVIGATION_MENU_STATES {
+  NONE,
   CLOSED,
   OPEN
 }
@@ -11,7 +12,7 @@ type AppContextType = {
 }
 
 const defaultAppContext: AppContextType = {
-  navigationMenuState: NAVIGATION_MENU_STATES.CLOSED,
+  navigationMenuState: NAVIGATION_MENU_STATES.NONE,
   setNavigationMenuState: (value: NAVIGATION_MENU_STATES) => {}
 }
 
@@ -22,7 +23,7 @@ type ContextProviderProps = {
 export const AppContext = createContext<AppContextType>(defaultAppContext)
 
 export function ContextProvider({ children }: ContextProviderProps) {
-  const [navMenuState, setNavMenuState] = useState<NAVIGATION_MENU_STATES>(NAVIGATION_MENU_STATES.CLOSED)
+  const [navMenuState, setNavMenuState] = useState<NAVIGATION_MENU_STATES>(NAVIGATION_MENU_STATES.NONE)
 
   const initialValues: AppContextType = {
     navigationMenuState: navMenuState,

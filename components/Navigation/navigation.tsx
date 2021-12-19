@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 
 import { CloseMenu } from '..'
 import { AppContext, NAVIGATION_MENU_STATES } from '../../context/context-provider'
@@ -7,19 +7,19 @@ import classes from './navigation.module.css'
 
 function Navigation() {
   const appContext = useContext(AppContext)
-  console.log(appContext.navigationMenuState)
-  //   const isClosed = appContext.navigationMenuState === NAVIGATION_MENU_STATES.CLOSED
   const isOpen = appContext.navigationMenuState === NAVIGATION_MENU_STATES.OPEN
+  const isClosed = appContext.navigationMenuState === NAVIGATION_MENU_STATES.CLOSED
 
-  //   const [isClosed, setIsClose] = useState(appContext.navigationMenuState === NAVIGATION_MENU_STATES.CLOSED)
+  const elClasses = [classes.navigation]
+  if (isOpen) elClasses.push(classes.open)
+  if (isClosed) elClasses.push(classes.close)
 
   return (
-    <div className={isOpen ? `${classes.navigation} ${classes.open}` : `${classes.navigation} ${classes.close}`}>
+    <div className={elClasses.join(' ')}>
       <div className={classes.closeNavigation}>
         <button
           onClick={() => {
             appContext.setNavigationMenuState(NAVIGATION_MENU_STATES.CLOSED)
-            // setIsClose(true)
           }}
           className={classes.btnClose}
         >
