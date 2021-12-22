@@ -22,7 +22,7 @@ interface HomePageProps {
   featuredCategories: Array<RecipeCategory>
 }
 
-const Home: NextPage<HomePageProps> = (props: HomePageProps) => {
+const HomePage: NextPage<HomePageProps> = (props: HomePageProps) => {
   const appContext = useContext(AppContext)
   useEffect(() => {
     if (appContext.navigationMenuState === NAVIGATION_MENU_STATES.OPEN) {
@@ -77,9 +77,9 @@ export async function getStaticProps() {
     props: {
       heroes: [
         {
-          imagePath: '/images/angshu-purkait.jpg',
-          authorName: 'Angshu Purkait',
-          authorUrl: 'https://unsplash.com/@angshu_purkait?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+          imagePath: '/images/amirali-mirhashemian.jpg',
+          authorName: 'Amirali Mirhashemian',
+          authorUrl: 'https://unsplash.com/@amir_v_ali?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
           content: "Bringing all the recipes\nfrom Feedspot's top 3 Indian bloggers\nin one place"
         },
         {
@@ -89,9 +89,9 @@ export async function getStaticProps() {
           content: 'Thousands of recipes from India\nand other parts of the world'
         },
         {
-          imagePath: '/images/pratiksha-mohanty.jpg',
-          authorName: 'Pratiksha Mohanty',
-          authorUrl: 'https://unsplash.com/@pratiksha_mohanty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+          imagePath: '/images/jem-sahagun.jpg',
+          authorName: 'Jem Sahagun',
+          authorUrl: 'https://unsplash.com/@jemsahagun?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
           content: 'A collection of\nvegeterian, non vegeterian,\nvegan and glutten free\nrecipes'
         }
       ],
@@ -129,4 +129,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Home
+export default HomePage

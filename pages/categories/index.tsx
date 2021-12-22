@@ -1,5 +1,5 @@
-const Categories = () => {
+const CategoriesPage = () => {
   return <h1>Categories Page!</h1>
 }
 
-export default Categories
+export default CategoriesPage

@@ -21,7 +21,7 @@
       "Soups",
       "MUFFINS",
       "Bread and Bun recipes",
-      "World Recipes",
+      "World Cuisines",
       "Mediterranean Cuisine",
       "American Recipes",
       "Mexican Recipes",
@@ -123,10 +123,21 @@
     "isFeatured": false,
     "tags": ["Cake Recipes", "Eggless Cakes", "Cake Recipes", "Chocolate Cake Mix Recipes", "Strawberry Cake Mix Recipes", "Vanilla Cake Mix Recipes"]
   },
-  { "id": "Bk-C1zqcCmNf7UcJIJXfo", "name": "Non Vegetarian Recipes", "isFeatured": false, "tags": ["Indian Non Veg Recipes", "VARUVALS"] },
+  {
+    "id": "qHurwWHnHnwJjJ1L4D0fo",
+    "name": "Diabetic Friendly Recipes",
+    "isFeatured": false,
+    "tags": ["Lunch", "Dinner", "Snack", "Diabetic", "Diabetes"]
+  },
+  {
+    "id": "Bk-C1zqcCmNf7UcJIJXfo",
+    "name": "Non Vegetarian Recipes",
+    "isFeatured": false,
+    "tags": ["Indian Non Veg Recipes", "Eggetarian", "VARUVALS"]
+  },
   {
     "id": "fg8jT1S0mh7OxXFqWgwgc",
-    "name": "Masla & Chutney",
+    "name": "Masala & Chutney",
     "isFeatured": false,
     "tags": ["Indian Homemade Masala Powder & Chutney Powder Recipes", "Indian Chutney Recipes", "Chutney Recipes", "Thogayals", "PODI/POWDERS"]
   },
@@ -215,6 +226,7 @@
     "isFeatured": false,
     "tags": [
       "Bread Recipes",
+      "Dry Fruit",
       "Baking Mix Recipes",
       "Cookie Mix Recipes",
       "Healthy Homemade Bread Recipes",
@@ -244,7 +256,11 @@
       "DIY & Collections",
       "Low Fat Recipes",
       "Condiments",
-      "Instant Pot"
+      "Instant Pot",
+      "Loaf",
+      "Curd",
+      "Yogurt",
+      "Homemade Paste"
     ]
   }
 ]
