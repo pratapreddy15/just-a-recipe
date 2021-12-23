@@ -5,6 +5,14 @@ export interface RecipeCategory {
   tags: string[]
 }
 
+export interface RecipeDetail {
+  id: string
+  categoryId: string
+  name: string
+  url: string
+  imageSource: string
+}
+
 export interface RecipeCategoryGallery {
   id: string
   name: string

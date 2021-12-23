@@ -74,10 +74,17 @@
   margin: 0.2rem 1rem;
 }
 
+.footerLink {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .slideshowButton img {
   height: 30px;
   margin: 0 5px;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 350px) {

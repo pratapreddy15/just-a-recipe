@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import classes from './recipe-category.module.css'
 
@@ -8,6 +9,7 @@ enum SLIDESHOW_STATE {
 }
 
 type RecipeCategoryProps = {
+  id: string
   category: string
   photos: { imageSource: string; imageTitle: string }[]
 }
@@ -49,7 +51,11 @@ function RecipeCategory(props: RecipeCategoryProps) {
               }}
             />
           )}
-          <img className={classes.browseRecipes} src="./images/btn-browse-recipes.svg" alt="Browse Recipes" />
+          <Link href={`/categories/${props.id}`}>
+            <a className={classes.footerLink}>
+              <img className={classes.browseRecipes} src="./images/btn-browse-recipes.svg" alt="Browse Recipes" />
+            </a>
+          </Link>
         </div>
       </div>
     </div>

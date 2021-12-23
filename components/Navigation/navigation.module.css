@@ -13,7 +13,7 @@
 
 .navigation.open {
   animation-name: navOpenAnimation;
-  animation-duration: 0.5s;
+  animation-duration: 0.45s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
@@ -21,7 +21,7 @@
 
 .navigation.close {
   animation-name: navCloseAnimation;
-  animation-duration: 0.5s;
+  animation-duration: 0.45s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;

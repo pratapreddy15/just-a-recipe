@@ -1,0 +1,28 @@
+.recipes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  list-style: none;
+  padding: 0 2rem;
+  margin: 4rem auto;
+  display: grid;
+  row-gap: 3rem;
+  column-gap: 2rem;
+  grid-template-columns: repeat(3, minmax(100px, 340px));
+}
+
+@media screen and (max-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(110px, 510px));
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .list {
+    grid-template-columns: repeat(1, minmax(210px, 310px));
+  }
+}
