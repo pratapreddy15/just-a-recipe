@@ -15,7 +15,7 @@ function Recipe(props: RecipeProps) {
   return (
     <li className={classes.item}>
       <div className={classes.photo}>
-        <Image className={classes.image} src={props.imageSource} layout="fill" alt={props.name} />
+        <Image objectFit="cover" className={classes.image} src={props.imageSource} layout="fill" alt={props.name} />
       </div>
       <div className={classes.footer}>
         <Link href={props.url}>

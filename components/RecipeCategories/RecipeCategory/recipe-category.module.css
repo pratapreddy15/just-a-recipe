@@ -3,11 +3,18 @@
 
 .gallery {
   position: relative;
+  height: 100%;
+}
+
+.single-photo {
+  position: relative;
+  height: 100%;
+  display: flex;
 }
 
 .photos {
   position: relative;
-  height: 20%;
+  /* height: 100%; */
   display: flex;
   animation-name: rotate-photos;
   animation-duration: 6s;
@@ -17,23 +24,19 @@
   animation-play-state: running;
 }
 
-.photos-rice {
-  animation-delay: 2s;
-}
-
-.photos-curries {
-  animation-delay: 4s;
-}
-
-.photos-sweets {
-  animation-delay: 6s;
-}
-
-.photos img {
+.photos img,
+.single-photo img {
   height: auto;
   width: stretch;
   width: -webkit-fill-available;
+}
+
+.photos img {
   object-fit: fill;
+}
+
+.single-photo img {
+  object-fit: cover;
 }
 
 .photos.playing {

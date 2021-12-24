@@ -2,11 +2,11 @@ import { useContext, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import path from 'path'
-import * as fs from 'fs/promises'
-import { AppContext, NAVIGATION_MENU_STATES } from '../context/context-provider'
-import { RecipeCategory, RecipeCategoryGallery } from '../types/recipe'
 
-import { Hero, Bloggers, RecipeCategories, PageFooter, IconMenu, Navigation } from '../components'
+import { AppContext, NAVIGATION_MENU_STATES } from '../context/context-provider'
+import { RecipeCategory, RecipeDetail, RecipeCategoryGallery, RecipeCategoryWithCount } from '../types/recipe'
+import { Hero, Bloggers, RecipeCategories } from '../components'
+import { getFileContent } from '../utils/utilities'
 
 /**
  * xs: 360px
@@ -18,8 +18,15 @@ import { Hero, Bloggers, RecipeCategories, PageFooter, IconMenu, Navigation } fr
 
 interface HomePageProps {
   heroes: Array<{ imagePath: string; authorName: string; authorUrl: string; content: string }>
-  bloggers: Array<{ title: string; blogUrl: string; highlight: string; youtubeUrl: string; facebookUrl: string; twitterUrl: string }>
-  featuredCategories: Array<RecipeCategory>
+  bloggers: Array<{
+    title: string
+    blogUrl: string
+    highlight: string
+    youtubeUrl: string
+    facebookUrl: string
+    twitterUrl: string
+  }>
+  featuredCategories: Array<RecipeCategoryWithCount>
 }
 
 const HomePage: NextPage<HomePageProps> = (props: HomePageProps) => {
@@ -30,10 +37,12 @@ const HomePage: NextPage<HomePageProps> = (props: HomePageProps) => {
     }
   }, [])
   const categoriesGallery: RecipeCategoryGallery[] = props.featuredCategories.map((category) => {
+    // const countMap = props.recipesCountMap.find((count) => count.categoryId === category.id)
     const photoDirectoryName = category.name.replace(' ', '-')
     return {
       id: category.id,
       name: category.name,
+      recipesCount: category.recipesCount,
       galleryPhotos: [
         {
           imageSource: `/images/recipe-categories/${photoDirectoryName}/photo-1.jpeg`,
@@ -60,18 +69,26 @@ const HomePage: NextPage<HomePageProps> = (props: HomePageProps) => {
       <main>
         <Hero heroContent={props.heroes} />
         <Bloggers bloggers={props.bloggers} />
-        <RecipeCategories categoriesGallery={categoriesGallery} />
-        <PageFooter />
+        <RecipeCategories categoriesGallery={categoriesGallery} addBrowseAllCategoriesLink={true} />
       </main>
     </div>
   )
 }
 
 export async function getStaticProps() {
-  const featuredCategoriesFilePath = path.join(process.cwd(), 'data', 'recipe-categories.json')
-  const fileContent = await fs.readFile(featuredCategoriesFilePath, { encoding: 'utf-8' })
-  const recipeCategories: RecipeCategory[] = JSON.parse(fileContent)
+  const recipeCategories = await getFileContent<RecipeCategory[]>(
+    path.join(process.cwd(), 'data', 'recipe-categories.json')
+  )
   const featuredCategories: RecipeCategory[] = recipeCategories.filter((category) => category.isFeatured)
+  const recipes = await getFileContent<RecipeDetail[]>(path.join(process.cwd(), 'data', 'recipes.json'))
+
+  const featuredCategoriesWithCount: RecipeCategoryWithCount[] = featuredCategories.map((category) => {
+    const recipesCount = recipes.filter((rec) => rec.categoryId === category.id).length
+    return {
+      ...category,
+      recipesCount: recipesCount
+    }
+  })
 
   return {
     props: {
@@ -79,19 +96,22 @@ export async function getStaticProps() {
         {
           imagePath: '/images/amirali-mirhashemian.jpg',
           authorName: 'Amirali Mirhashemian',
-          authorUrl: 'https://unsplash.com/@amir_v_ali?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+          authorUrl:
+            'https://unsplash.com/@amir_v_ali?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
           content: "Bringing all the recipes\nfrom Feedspot's top 3 Indian bloggers\nin one place"
         },
         {
           imagePath: '/images/pranjall-kumar.jpg',
           authorName: 'Pranjall Kumar',
-          authorUrl: 'https://unsplash.com/@pranjallk1995?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+          authorUrl:
+            'https://unsplash.com/@pranjallk1995?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
           content: 'Thousands of recipes from India\nand other parts of the world'
         },
         {
           imagePath: '/images/jem-sahagun.jpg',
           authorName: 'Jem Sahagun',
-          authorUrl: 'https://unsplash.com/@jemsahagun?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
+          authorUrl:
+            'https://unsplash.com/@jemsahagun?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText',
           content: 'A collection of\nvegeterian, non vegeterian,\nvegan and glutten free\nrecipes'
         }
       ],
@@ -124,7 +144,7 @@ export async function getStaticProps() {
           twitterUrl: 'https://twitter.com/rakskitchen'
         }
       ],
-      featuredCategories: featuredCategories
+      featuredCategories: featuredCategoriesWithCount
     }
   }
 }
