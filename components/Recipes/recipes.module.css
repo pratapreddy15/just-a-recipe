@@ -15,6 +15,33 @@
   grid-template-columns: repeat(3, minmax(100px, 340px));
 }
 
+.recipesFooter {
+  margin-bottom: 2rem;
+}
+
+.loadMoreButton {
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  outline: none;
+  border-radius: 4px;
+  border: 2px solid green;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.loadMoreButton:focus,
+.loadMoreButton:active {
+  border: 2px solid green;
+  outline: none;
+}
+
+.loadMoreButton:hover {
+  background-color: green;
+  color: #fff;
+  box-shadow: 0px 0px 4px rgb(0, 41, 0);
+}
+
 @media screen and (max-width: 768px) {
   .list {
     grid-template-columns: repeat(2, minmax(110px, 510px));

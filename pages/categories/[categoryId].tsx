@@ -15,7 +15,8 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
 
   if (categoryId) {
     const recipes = await getFileContent<RecipeDetail[]>(path.join(process.cwd(), 'data', 'recipes.json'))
-    recipesForGivenCategory = recipes.filter((rec) => rec.categoryId === categoryId)
+    // TODO - remove slice
+    recipesForGivenCategory = recipes.filter((rec) => rec.categoryId === categoryId).slice(0, 10)
   }
 
   return {

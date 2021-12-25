@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { ImageLoader } from '../../'
 import classes from './recipe.module.css'
@@ -17,7 +17,7 @@ function Recipe(props: RecipeProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
-    <li className={classes.item}>
+    <li data-recipe data-recipeid={props.id} data-categoryid={props.categoryId} className={classes.item}>
       <div className={classes.photo}>
         {!imageLoaded && <ImageLoader />}
         <Image
@@ -28,7 +28,6 @@ function Recipe(props: RecipeProps) {
           alt={props.name}
           onLoadingComplete={(e) => setImageLoaded(true)}
         />
-        {/* <ImageLoader /> */}
       </div>
       <div className={classes.footer}>
         <Link href={props.url}>

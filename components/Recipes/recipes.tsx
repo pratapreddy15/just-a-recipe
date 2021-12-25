@@ -1,5 +1,8 @@
-import { Recipe } from '../'
+import { useEffect, useReducer } from 'react'
 
+import { Recipe } from '../'
+import { RECIPES_ACTION_TYPES, recipesReducer } from './recipes-reducer'
+import { RecipeDetail } from '../../types/recipe'
 import classes from './recipes.module.css'
 
 interface RecipesProps {
@@ -13,12 +16,78 @@ interface RecipesProps {
 }
 
 function Recipes(props: RecipesProps) {
-  const { recipes } = props
+  const [state, dispatch] = useReducer(recipesReducer, { recipes: props.recipes, done: false })
+
+  const startObserving = (observer: IntersectionObserver) => {
+    const cards = document.querySelectorAll('ul[data-recipes] li[data-recipe]')
+    const lastCard = cards[cards.length - 1]
+    observer.observe(lastCard)
+  }
+
+  const stopObserving = (observer: IntersectionObserver, element: Element) => {
+    observer.unobserve(element)
+  }
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     if (entries.length === 1 && entries[0].isIntersecting) {
+  //       if (state.done) {
+  //         entries.forEach((entry) => stopObserving(observer, entry.target))
+  //       } else {
+  //         const recipeId = (entries[0].target as HTMLElement).dataset.recipeid
+  //         const categoryId = (entries[0].target as HTMLElement).dataset.categoryid
+  //         fetch(`/api/categories/${categoryId}?lastRecipeId=${recipeId}`)
+  //           .then((response) => response.json())
+  //           .then((json) => {
+  //             const result = json as { recipes: RecipeDetail[]; done: boolean }
+  //             dispatch({
+  //               type: RECIPES_ACTION_TYPES.SET_STATE,
+  //               payload: {
+  //                 done: result.done,
+  //                 recipes: state.recipes.concat(result.recipes)
+  //               }
+  //             })
+  //             entries.forEach((entry) => stopObserving(observer, entry.target))
+  //             startObserving(observer)
+  //           })
+  //           .catch((e) => console.error(e))
+  //       }
+  //     }
+  //   })
+
+  //   startObserving(observer)
+  // }, [])
+
+  const loadMoreRecipes = () => {
+    if (!state.done) {
+      const cards = document.querySelectorAll('ul[data-recipes] li[data-recipe]')
+      const lastCard = cards[cards.length - 1] as HTMLElement
+
+      const recipeId = lastCard.dataset.recipeid
+      const categoryId = lastCard.dataset.categoryid
+
+      fetch(`/api/categories/${categoryId}?lastRecipeId=${recipeId}`)
+        .then((response) => response.json())
+        .then((json) => {
+          const result = json as { recipes: RecipeDetail[]; done: boolean }
+          dispatch({
+            type: RECIPES_ACTION_TYPES.SET_STATE,
+            payload: {
+              done: result.done,
+              recipes: state.recipes.concat(result.recipes)
+            }
+          })
+        })
+        .catch((e) => console.error(e))
+    } else {
+      console.log('Loaded all the recipes!!!')
+    }
+  }
 
   return (
     <div className={classes.recipes}>
-      <ul className={classes.list}>
-        {recipes.map((rec) => (
+      <ul data-recipes className={classes.list}>
+        {state.recipes.map((rec) => (
           <Recipe
             key={rec.id}
             id={rec.id}
@@ -29,6 +98,11 @@ function Recipes(props: RecipesProps) {
           />
         ))}
       </ul>
+      <div className={classes.recipesFooter}>
+        <button className={classes.loadMoreButton} onClick={loadMoreRecipes}>
+          Load More Recipes
+        </button>
+      </div>
     </div>
   )
 }
