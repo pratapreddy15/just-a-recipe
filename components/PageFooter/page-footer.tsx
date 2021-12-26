@@ -5,7 +5,7 @@ import classes from './page-footer.module.css'
 
 function PageFooter() {
   return (
-    <div className={classes.footer}>
+    <div data-pagefooter className={classes.footer}>
       <div className={classes.links}>
         <div className={classes.github}>
           <Link href="https://github.com/pratapreddy15/just-a-recipe">

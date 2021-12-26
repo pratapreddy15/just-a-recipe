@@ -1,0 +1,87 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 165px);
+}
+
+.formHeader {
+  font-size: 1.5rem;
+  color: orangered;
+}
+
+.form {
+  font-size: 1.2rem;
+}
+
+.formControl {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem 0;
+}
+
+.formLabel {
+}
+
+.formInput {
+  width: 20rem;
+  padding: 0.5rem;
+  margin-top: 10px;
+}
+
+.textarea {
+  margin-top: 10px;
+  width: 40rem;
+  height: 15rem;
+  resize: none;
+}
+
+.formButton {
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-right: 1.5rem;
+}
+
+.formButton:hover {
+  color: #fff;
+}
+
+/* Submit Button */
+
+.formButton[type='submit'] {
+  border: 2px solid green;
+}
+
+.formButton[type='submit']:hover {
+  background-color: green;
+  box-shadow: 0px 0px 4px rgb(0, 41, 0);
+}
+
+.formButton[type='submit']:focus,
+.formButton[type='submit']:active {
+  border: 2px solid green;
+  outline: none;
+}
+
+/* Reset Button */
+
+.formButton[type='reset'] {
+  border: 2px solid #6d6875;
+}
+
+.formButton[type='reset']:hover {
+  background-color: #6d6875;
+  box-shadow: 0px 0px 4px #6d6875;
+}
+
+.formButton[type='reset']:focus,
+.formButton[type='reset']:active {
+  border: 2px solid #6d6875;
+  outline: none;
+}

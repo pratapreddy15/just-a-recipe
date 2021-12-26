@@ -4,7 +4,7 @@ import '../styles/_nav.css'
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
-import { Navbar } from '../components'
+import { Navbar, PageFooter } from '../components'
 import { ContextProvider } from '../context/context-provider'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Navbar />
         <Component {...pageProps} />
       </ContextProvider>
+      <PageFooter />
     </>
   )
 }

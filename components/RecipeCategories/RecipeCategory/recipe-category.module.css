@@ -3,11 +3,18 @@
 
 .gallery {
   position: relative;
+  height: 100%;
+}
+
+.single-photo {
+  position: relative;
+  height: 100%;
+  display: flex;
 }
 
 .photos {
   position: relative;
-  height: 20%;
+  /* height: 100%; */
   display: flex;
   animation-name: rotate-photos;
   animation-duration: 6s;
@@ -17,23 +24,19 @@
   animation-play-state: running;
 }
 
-.photos-rice {
-  animation-delay: 2s;
-}
-
-.photos-curries {
-  animation-delay: 4s;
-}
-
-.photos-sweets {
-  animation-delay: 6s;
+.photos img,
+.single-photo img {
+  height: auto;
+  width: stretch;
+  width: -webkit-fill-available;
 }
 
 .photos img {
-  height: auto;
-  width: fill-available;
-  width: -webkit-fill-available;
   object-fit: fill;
+}
+
+.single-photo img {
+  object-fit: cover;
 }
 
 .photos.playing {
@@ -74,10 +77,17 @@
   margin: 0.2rem 1rem;
 }
 
+.footerLink {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .slideshowButton img {
   height: 30px;
   margin: 0 5px;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 350px) {

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import classes from './recipe-category.module.css'
 
@@ -8,17 +9,43 @@ enum SLIDESHOW_STATE {
 }
 
 type RecipeCategoryProps = {
+  id: string
   category: string
+  recipesCount: number
   photos: { imageSource: string; imageTitle: string }[]
 }
 
 function RecipeCategory(props: RecipeCategoryProps) {
   const [slideshowState, setSlideshowState] = React.useState<SLIDESHOW_STATE>(SLIDESHOW_STATE.PLAYING)
   const classList = [
-    classes.photos,
+    props.photos.length > 1 ? classes.photos : classes['single-photo'],
     `${slideshowState === SLIDESHOW_STATE.PLAYING ? classes.playing : classes.paused}`,
     classes[`photos-${props.category}`]
   ]
+
+  let slideshowMediaImage: React.ReactNode
+  if (props.photos.length > 1) {
+    slideshowMediaImage =
+      slideshowState === SLIDESHOW_STATE.PAUSED ? (
+        <img
+          className={classes.imagePlay}
+          src="./images/play-circle.svg"
+          alt="Play"
+          onClick={() => {
+            setSlideshowState(SLIDESHOW_STATE.PLAYING)
+          }}
+        />
+      ) : (
+        <img
+          className={classes.imagePaused}
+          src="./images/pause-circle.svg"
+          alt="Pause"
+          onClick={() => {
+            setSlideshowState(SLIDESHOW_STATE.PAUSED)
+          }}
+        />
+      )
+  }
 
   return (
     <div className={classes.gallery}>
@@ -28,28 +55,16 @@ function RecipeCategory(props: RecipeCategoryProps) {
         })}
       </div>
       <div className={classes.footer}>
-        <div className={classes.categoryName}>{props.category}</div>
+        <div className={classes.categoryName}>
+          {new Intl.NumberFormat().format(props.recipesCount)} {props.category}
+        </div>
         <div className={classes.slideshowButton}>
-          {slideshowState === SLIDESHOW_STATE.PAUSED ? (
-            <img
-              className={classes.imagePlay}
-              src="./images/play-circle.svg"
-              alt="Play"
-              onClick={() => {
-                setSlideshowState(SLIDESHOW_STATE.PLAYING)
-              }}
-            />
-          ) : (
-            <img
-              className={classes.imagePaused}
-              src="./images/pause-circle.svg"
-              alt="Pause"
-              onClick={() => {
-                setSlideshowState(SLIDESHOW_STATE.PAUSED)
-              }}
-            />
-          )}
-          <img className={classes.browseRecipes} src="./images/btn-browse-recipes.svg" alt="Browse Recipes" />
+          {slideshowMediaImage && slideshowMediaImage}
+          <Link href={`/categories/${props.id}`}>
+            <a className={classes.footerLink}>
+              <img className={classes.browseRecipes} src="./images/btn-browse-recipes.svg" alt="Browse Recipes" />
+            </a>
+          </Link>
         </div>
       </div>
     </div>

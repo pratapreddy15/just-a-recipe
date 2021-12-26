@@ -1,0 +1,27 @@
+.about {
+  margin: 2rem 15rem;
+}
+
+.brandname {
+  font-size: 4rem;
+  text-align: center;
+  color: orangered;
+  font-family: cursive;
+}
+
+.paragraph {
+  font-size: 1.8rem;
+  margin: 4rem 0;
+}
+
+.image {
+  font-size: 1.5rem;
+}
+
+.link {
+  color: #ae2012;
+}
+
+.link:hover {
+  color: #ff1500;
+}

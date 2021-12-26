@@ -2,6 +2,7 @@
   {
     "id": "Lq_fOr84KO6sfqcV39rWA",
     "name": "World Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/veg-burrito.jpg",
     "isFeatured": true,
     "tags": [
       "World Recipes",
@@ -21,7 +22,7 @@
       "Soups",
       "MUFFINS",
       "Bread and Bun recipes",
-      "World Recipes",
+      "World Cuisines",
       "Mediterranean Cuisine",
       "American Recipes",
       "Mexican Recipes",
@@ -32,46 +33,33 @@
   {
     "id": "g4fXRbYAmIOybONgxWvHy",
     "name": "Breakfast Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Farrukh_Aziz_Ansari/Ghoogri.jpg",
     "isFeatured": false,
-    "tags": ["Breakfast Recipes (Indian Breakfast Ideas)", "Breakfast Menu", "Tiffin Sambar Recipes", "Breakfast Recipes"]
+    "tags": [
+      "Breakfast Recipes (Indian Breakfast Ideas)",
+      "Breakfast Menu",
+      "Tiffin Sambar Recipes",
+      "Breakfast Recipes"
+    ]
   },
   {
     "id": "DT8fgVCGtz62k46Z1ieci",
     "name": "Main Course Recipes",
+    "imageSource": "https://rakskitchen.net/wp-content/uploads/2014/05/rajma-chawal-kadai-bhendi.jpg",
     "isFeatured": false,
     "tags": ["Main Course Recipes", "Lunch menus", "Lunch planner"]
   },
   {
-    "id": "SF_MKriGGwj22S0CzSqkd",
-    "name": "Regional Recipes",
-    "isFeatured": false,
-    "tags": [
-      "North Indian Food",
-      "Andhra Recipes",
-      "South Indian Food",
-      "Kerala Recipes",
-      "Maharashtrian Recipes",
-      "Gujarati Recipes",
-      "Karnataka Recipes",
-      "Konkan Recipes",
-      "Bengali Recipes",
-      "Kashmiri Recipes",
-      "Hyderabadi Recipes",
-      "Uttar Pradesh Cuisine",
-      "Punjabi Recipes",
-      "Tamil Nadu Food",
-      "Goan Recipes"
-    ]
-  },
-  {
     "id": "oWCBlkt9-9K6qPuq0sehA",
     "name": "Rice & Millet Recipes",
+    "imageSource": "https://rakskitchen.net/wp-content/uploads/2013/03/8573604585_e0f335478d_z.jpg",
     "isFeatured": false,
     "tags": ["Rice Recipes", "Pulao Recipes", "Millet Recipes", "60+ Rice Recipes"]
   },
   {
     "id": "ZITkA5sHdlwOlZAccfktD",
     "name": "Vegetarian Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2012/09/dry-aloo-matar.jpg",
     "isFeatured": true,
     "tags": [
       "South Indian Vegetarian Recipes",
@@ -95,45 +83,86 @@
       "Vegetable Recipes"
     ]
   },
-  { "id": "-O1DjbJrPv__naIZeWlxh", "name": "Vegan Recipes", "isFeatured": false, "tags": ["Vegan Recipes"] },
   {
-    "id": "O-QeK_laplJsjiKJ9Vfp2",
-    "name": "Indian Chinese Recipes",
-    "isFeatured": false,
-    "tags": ["Indian Chinese Recipes", "Indo Chinese Recipes"]
+    "id": "BiDu6V-cMI3D0ETQu6M9J",
+    "name": "Appetizer Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/sibyl-archanaskitchen.com/Herbed_Pan_Roasted_Vegetables_Recipe_.jpg",
+    "isFeatured": true,
+    "tags": ["Indian Side Dish Recipes", "Starters"]
   },
-  { "id": "BiDu6V-cMI3D0ETQu6M9J", "name": "Appetizer Recipes", "isFeatured": true, "tags": ["Indian Side Dish Recipes", "Starters"] },
-  { "id": "OFTDFb_PCbc2kpIl5lPMG", "name": "Raita Recipes", "isFeatured": false, "tags": ["Indian Raita Recipes"] },
+  {
+    "id": "OFTDFb_PCbc2kpIl5lPMG",
+    "name": "Raita Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Pooja_Thakur/Corn_And_Onion_Raita.jpg",
+    "isFeatured": false,
+    "tags": ["Indian Raita Recipes"]
+  },
   {
     "id": "JKc8jJHR8xFIGIgh5s8jc",
     "name": "Curry Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2013/12/lauki-chana-dal-recipe1.jpg",
     "isFeatured": true,
     "tags": ["Indian Curry Recipes", "Dry Curries", "Kuzhambu & Other gravies", "Curry Recipes"]
   },
   {
     "id": "JA4Lm0aT3bw5bNrVYeds5",
     "name": "Bread & Roti Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Shaheen_Ali/Traditional_Bihari_Litti_Chokha_Recipe-1.jpg",
     "isFeatured": false,
     "tags": ["Indian Bread Recipes", "Thepla Recipes", "Cheela Recipes (Chilla)", "Roti", "Indian Breads"]
   },
-  { "id": "TKuCGXQZnO-sohtDrnSE0", "name": "Salad Recipes", "isFeatured": false, "tags": ["Salad Recipes", "Indian Salad Recipes", "Salad"] },
+  {
+    "id": "TKuCGXQZnO-sohtDrnSE0",
+    "name": "Salad Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2013/04/moong-sprouts-salad.jpg",
+    "isFeatured": false,
+    "tags": ["Salad Recipes", "Indian Salad Recipes", "Salad"]
+  },
   {
     "id": "elNZEyz-u39Hx_Dy8Emon",
     "name": "Cake Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/03/eggless-vanilla-cake-1.jpg",
     "isFeatured": false,
-    "tags": ["Cake Recipes", "Eggless Cakes", "Cake Recipes", "Chocolate Cake Mix Recipes", "Strawberry Cake Mix Recipes", "Vanilla Cake Mix Recipes"]
+    "tags": [
+      "Cake Recipes",
+      "Eggless Cakes",
+      "Cake Recipes",
+      "Chocolate Cake Mix Recipes",
+      "Strawberry Cake Mix Recipes",
+      "Vanilla Cake Mix Recipes"
+    ]
   },
-  { "id": "Bk-C1zqcCmNf7UcJIJXfo", "name": "Non Vegetarian Recipes", "isFeatured": false, "tags": ["Indian Non Veg Recipes", "VARUVALS"] },
+  {
+    "id": "qHurwWHnHnwJjJ1L4D0fo",
+    "name": "Diabetic Friendly Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/themadscientistskitchen-gmail.com/Spongy_Quinoa_Idli_for_a_Healthy_Breakfast-2.jpg",
+    "isFeatured": false,
+    "tags": ["Lunch", "Dinner", "Snack", "Diabetic", "Diabetes"]
+  },
+  {
+    "id": "Bk-C1zqcCmNf7UcJIJXfo",
+    "name": "Non Vegetarian Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Pooja_Thakur/Lagan_Ki_Machli_Recipe_With_Pan_Fried_Pomfret-1_1600.jpg",
+    "isFeatured": false,
+    "tags": ["Indian Non Veg Recipes", "Eggetarian", "VARUVALS"]
+  },
   {
     "id": "fg8jT1S0mh7OxXFqWgwgc",
-    "name": "Masla & Chutney",
+    "name": "Masala & Chutney",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/BasicRecipes_Spice_Powders/Kashmiri_spice_mix_Masala_Powder.jpg",
     "isFeatured": false,
-    "tags": ["Indian Homemade Masala Powder & Chutney Powder Recipes", "Indian Chutney Recipes", "Chutney Recipes", "Thogayals", "PODI/POWDERS"]
+    "tags": [
+      "Indian Homemade Masala Powder & Chutney Powder Recipes",
+      "Indian Chutney Recipes",
+      "Chutney Recipes",
+      "Thogayals",
+      "PODI/POWDERS"
+    ]
   },
-  { "id": "jhq7bdVhV_nC2eRnPWuRX", "name": "Satvik Recipes", "isFeatured": false, "tags": ["Satvik - No Onion No Garlic"] },
   {
     "id": "N3dRYa5YEPr4iy8Sgvz8M",
     "name": "Snack Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/05/sabudana-vada-recipe-3.jpg",
     "isFeatured": false,
     "tags": [
       "Snack Recipes",
@@ -146,10 +175,17 @@
       "Pakora Recipes"
     ]
   },
-  { "id": "xRgSOsmL7mYoay0qS3nAC", "name": "Gluten Free Recipes", "isFeatured": false, "tags": ["Gluten Free Recipes"] },
+  {
+    "id": "xRgSOsmL7mYoay0qS3nAC",
+    "name": "Gluten Free Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/garimasgautam-gmail.com/Gluten_Free_Samosa.jpg",
+    "isFeatured": false,
+    "tags": ["Gluten Free Recipes"]
+  },
   {
     "id": "1bCT8-05alhIf5_CVhCax",
     "name": "Drink Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/admin/Kashayam_Recipe__Herbal_Drink_From_Tulsi_Holi_Basil_Black_Pepper_Ginger_and_Palm_Sugar_.jpg",
     "isFeatured": false,
     "tags": [
       "Drink Recipes",
@@ -163,17 +199,31 @@
       "Smoothie"
     ]
   },
-  { "id": "TkSYKDt8rKJg_up3GGbZv", "name": "Dessert Recipes", "isFeatured": true, "tags": ["Dessert Recipes"] },
+  {
+    "id": "TkSYKDt8rKJg_up3GGbZv",
+    "name": "Dessert Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/eggless-chocolate-mousse-1.jpg",
+    "isFeatured": true,
+    "tags": ["Dessert Recipes"]
+  },
   {
     "id": "0I4PSvVfcyPQmaC3tR91U",
     "name": "Dal Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/nithya.anantham/Trevti_Daal_Gujarati_Style_Creamy_Lentils_Cooked_in_Mild_Spices.jpg",
     "isFeatured": false,
     "tags": ["Dal Recipes", "Rasam Recipes", "Dal Recipes", "Sambar Recipes", "Dal (Lentils) & Legumes"]
   },
-  { "id": "kvSBv16WxAhiyeMFMuxWR", "name": "Paratha Recipes", "isFeatured": false, "tags": ["Paratha Recipes", "Parathas"] },
+  {
+    "id": "kvSBv16WxAhiyeMFMuxWR",
+    "name": "Paratha Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2017/6-march/Cheesy_Aloo_Stuffed_Paratha_Recipe-2.jpg",
+    "isFeatured": false,
+    "tags": ["Paratha Recipes", "Parathas"]
+  },
   {
     "id": "SFx-vzlUZyoJpgMnoOpHA",
     "name": "Sweet Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/11/gajar-ka-halwa-1.jpg",
     "isFeatured": true,
     "tags": [
       "Sweet Recipes (Indian Mithai / Indian Dessert)",
@@ -187,14 +237,45 @@
       "Halwa"
     ]
   },
-  { "id": "K5ayVVNWmitYaNKH8uioH", "name": "Pickle Recipes", "isFeatured": false, "tags": ["Traditional Indian Homemade Pickle Recipes", "PICKLES"] },
-  { "id": "3YXkScczG2klUGRhwEcyn", "name": "Breakfast & Dinner Recipes", "isFeatured": false, "tags": ["Breakfast & Dinner Ideas"] },
-  { "id": "99LHNGObzo-phUBmfmX1W", "name": "Dosa Recipes", "isFeatured": false, "tags": ["Dosa Recipes"] },
-  { "id": "bK7rC5iqinBUMoG7Rb8ka", "name": "Paneer recipes", "isFeatured": false, "tags": ["Paneer recipes"] },
-  { "id": "MkV4IKvI22iyDoVgZrwqD", "name": "Biryani Recipes", "isFeatured": false, "tags": ["Biryani Recipes"] },
+  {
+    "id": "K5ayVVNWmitYaNKH8uioH",
+    "name": "Pickle Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/Sujata_Shukla/Raw__Mango_Thokku_from_Tamilnadu_recipe.jpg",
+    "isFeatured": false,
+    "tags": ["Traditional Indian Homemade Pickle Recipes", "PICKLES"]
+  },
+  {
+    "id": "3YXkScczG2klUGRhwEcyn",
+    "name": "Breakfast & Dinner Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2013/05/mysore-masala-dosa-recipe.jpg",
+    "isFeatured": false,
+    "tags": ["Breakfast & Dinner Ideas"]
+  },
+  {
+    "id": "99LHNGObzo-phUBmfmX1W",
+    "name": "Dosa Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2019/Moong_Dal_Dosa_Recipe_Video_5_1600.jpg",
+    "isFeatured": false,
+    "tags": ["Dosa Recipes"]
+  },
+  {
+    "id": "bK7rC5iqinBUMoG7Rb8ka",
+    "name": "Paneer recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/02/matar-paneer-0.jpg",
+    "isFeatured": false,
+    "tags": ["Paneer recipes"]
+  },
+  {
+    "id": "MkV4IKvI22iyDoVgZrwqD",
+    "name": "Biryani Recipes",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/0-Affiliate-Articles/Aloo_Sabz_Dum_Biryani_Recipe_1600.jpg",
+    "isFeatured": false,
+    "tags": ["Biryani Recipes"]
+  },
   {
     "id": "Btt3noapHBwLEIpksY6Mu",
     "name": "Festival Recipes",
+    "imageSource": "https://rakskitchen.net/wp-content/uploads/2012/08/7723297898_0593e9e5ea_z.jpg",
     "isFeatured": false,
     "tags": [
       "Gokulashtami Recipes",
@@ -208,13 +289,21 @@
       "Navratri & Fasting Recipes"
     ]
   },
-  { "id": "Q_qFHSxyICTewTcstOpXE", "name": "Chaat & Street Food Recipes", "isFeatured": false, "tags": ["Chaat Items", "Street Food Recipes"] },
+  {
+    "id": "Q_qFHSxyICTewTcstOpXE",
+    "name": "Chaat & Street Food Recipes",
+    "imageSource": "https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/ragda-pattice-1.jpg",
+    "isFeatured": false,
+    "tags": ["Chaat Items", "Street Food Recipes"]
+  },
   {
     "id": "3HvSVZUO_eR_hzxHqBwEE",
     "name": "Miscellaneous",
+    "imageSource": "https://www.archanaskitchen.com/images/archanaskitchen/0-Archanas-Kitchen-Recipes/2020/Healthy_Whole_Wheat_Chocolate_Chip_Cookies_6_1600.jpg",
     "isFeatured": false,
     "tags": [
       "Bread Recipes",
+      "Dry Fruit",
       "Baking Mix Recipes",
       "Cookie Mix Recipes",
       "Healthy Homemade Bread Recipes",
@@ -244,7 +333,11 @@
       "DIY & Collections",
       "Low Fat Recipes",
       "Condiments",
-      "Instant Pot"
+      "Instant Pot",
+      "Loaf",
+      "Curd",
+      "Yogurt",
+      "Homemade Paste"
     ]
   }
 ]

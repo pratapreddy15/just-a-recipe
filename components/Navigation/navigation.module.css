@@ -4,26 +4,27 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(212, 212, 212, 100%);
+  background-color: #000;
   cursor: auto;
   transform: scale(0);
   border-bottom-left-radius: 50%;
   transform-origin: top right;
+  z-index: 999999;
 }
 
 .navigation.open {
   animation-name: navOpenAnimation;
-  animation-duration: 0.5s;
+  animation-duration: 0.45s;
   animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
 
 .navigation.close {
   animation-name: navCloseAnimation;
-  animation-duration: 0.5s;
+  animation-duration: 0.45s;
   animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
 
@@ -42,7 +43,7 @@
 }
 
 .navigation__list--item a {
-  color: #ae2012;
+  color: #fff;
   text-transform: uppercase;
 }
 
