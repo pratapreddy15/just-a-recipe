@@ -4,13 +4,12 @@
   left: 0;
   height: 100%;
   width: 100%;
-  /* background-color: rgba(212, 212, 212, 100%); */
-  /* background-color: #495057; */
   background-color: #000;
   cursor: auto;
   transform: scale(0);
   border-bottom-left-radius: 50%;
   transform-origin: top right;
+  z-index: 999999;
 }
 
 .navigation.open {
