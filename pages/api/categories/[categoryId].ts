@@ -11,6 +11,7 @@ type ErrorDetail = {
 
 type ApiResponse = {
   recipes: RecipeDetail[]
+  totalRecipes: number
   done: boolean
 }
 
@@ -23,6 +24,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       const lastRecipeId = req.query.lastRecipeId
       const recipes = await getFileContent<RecipeDetail[]>(path.join(process.cwd(), 'data', 'recipes.json'))
       const recipesForCategory = recipes.filter((rec) => rec.categoryId === categoryId.toString())
+
+      const totalRecipes = recipesForCategory.length
 
       const top10Recipes: RecipeDetail[] = []
       if (!lastRecipeId) {
@@ -39,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         }
       }
 
-      res.status(200).json({ recipes: top10Recipes, done: isDone })
+      res.status(200).json({ recipes: top10Recipes, totalRecipes: totalRecipes, done: isDone })
     } catch {
       res.status(400).json({ errorCode: 400, errorMessage: 'Invalid request' })
     }

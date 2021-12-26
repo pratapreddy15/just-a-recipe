@@ -5,10 +5,22 @@
   align-items: center;
 }
 
+.headerText {
+  top: 0;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 999;
+  background-color: #fff;
+}
+
 .list {
   list-style: none;
   padding: 0 2rem;
-  margin: 4rem auto;
+  margin: 2rem auto;
   display: grid;
   row-gap: 3rem;
   column-gap: 2rem;

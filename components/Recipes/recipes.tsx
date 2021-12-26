@@ -13,6 +13,7 @@ interface RecipesProps {
     imageSource: string
     url: string
   }>
+  totalRecipes: number
 }
 
 function Recipes(props: RecipesProps) {
@@ -46,6 +47,9 @@ function Recipes(props: RecipesProps) {
 
   return (
     <div className={classes.recipes}>
+      <div className={classes.headerText}>
+        <h4>{`Showing ${state.recipes.length} recipes of ${props.totalRecipes}`}</h4>
+      </div>
       <ul data-recipes className={classes.list}>
         {state.recipes.map((rec) => (
           <Recipe
@@ -58,11 +62,13 @@ function Recipes(props: RecipesProps) {
           />
         ))}
       </ul>
-      <div className={classes.recipesFooter}>
-        <button className={classes.loadMoreButton} onClick={loadMoreRecipes}>
-          Load More Recipes
-        </button>
-      </div>
+      {!state.done && (
+        <div className={classes.recipesFooter}>
+          <button className={classes.loadMoreButton} onClick={loadMoreRecipes}>
+            Load More Recipes
+          </button>
+        </div>
+      )}
     </div>
   )
 }

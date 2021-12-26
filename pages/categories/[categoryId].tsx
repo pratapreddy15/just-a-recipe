@@ -5,23 +5,27 @@ import { Recipes } from '../../components'
 import { getFileContent } from '../../utils/utilities'
 import { RecipeDetail, RecipeCategory } from '../../types/recipe'
 
-function CategoryPage({ recipes }: { recipes: RecipeDetail[] }) {
-  return <Recipes recipes={recipes} />
+function CategoryPage({ recipes, totalRecipes }: { recipes: RecipeDetail[]; totalRecipes: number }) {
+  return <Recipes recipes={recipes} totalRecipes={totalRecipes} />
 }
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   let recipesForGivenCategory: RecipeDetail[] = []
   const categoryId = context.params?.categoryId
 
+  let recipesCount = 0
+
   if (categoryId) {
     const recipes = await getFileContent<RecipeDetail[]>(path.join(process.cwd(), 'data', 'recipes.json'))
     // TODO - remove slice
-    recipesForGivenCategory = recipes.filter((rec) => rec.categoryId === categoryId).slice(0, 10)
+    recipesForGivenCategory = recipes.filter((rec) => rec.categoryId === categoryId)
+    recipesCount = recipesForGivenCategory.length
   }
 
   return {
     props: {
-      recipes: recipesForGivenCategory
+      recipes: recipesForGivenCategory.slice(0, 10),
+      totalRecipes: recipesCount
     }
   }
 }
