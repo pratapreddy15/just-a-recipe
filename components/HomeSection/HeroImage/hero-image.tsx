@@ -33,11 +33,11 @@ function HeroImage(props: HeroImageProps) {
       />
       <div className={classes.credit}>
         Photo by{' '}
-        <a target="_blank" href={props.authorUrl}>
+        <a target="_blank" href={props.authorUrl} rel="noreferrer">
           {props.authorName}
         </a>{' '}
         on{' '}
-        <a target="_blank" href="https://unsplash.com">
+        <a target="_blank" href="https://unsplash.com" rel="noreferrer">
           Unsplash
         </a>
       </div>

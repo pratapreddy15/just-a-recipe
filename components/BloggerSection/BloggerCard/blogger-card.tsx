@@ -17,7 +17,7 @@ function BloggerCard(props: BloggerCardProps) {
     <div className={classes.card}>
       <div className={classes.title}>
         <Link href={props.blogUrl}>
-          <a className={classes.linkToBlog} target="_blank">
+          <a className={classes.linkToBlog} target="_blank" rel="noreferrer">
             {props.bloggerTitle}
           </a>
         </Link>
@@ -25,17 +25,17 @@ function BloggerCard(props: BloggerCardProps) {
       <div className={classes.highlight}>{props.highlight}</div>
       <div className={classes.socialMedias}>
         <div className={classes.youtube}>
-          <a className={classes.link} href={props.youtubeUrl} target="_blank">
+          <a className={classes.link} href={props.youtubeUrl} target="_blank" rel="noreferrer">
             <Image height={30} width={30} src="/images/youtube-icon.svg" />
           </a>
         </div>
         <div className={classes.facebook}>
-          <a className={classes.link} target="_blank" href={props.facebookUrl}>
+          <a className={classes.link} target="_blank" href={props.facebookUrl} rel="noreferrer">
             <Image height={30} width={30} src="/images/facebook-icon.svg" />
           </a>
         </div>
         <div className={classes.twitter}>
-          <a className={classes.link} target="_blank" href={props.twitterUrl}>
+          <a className={classes.link} target="_blank" href={props.twitterUrl} rel="noreferrer">
             <Image height={30} width={30} src="/images/twitter-icon.svg" />
           </a>
         </div>
