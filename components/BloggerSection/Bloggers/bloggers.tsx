@@ -4,7 +4,14 @@ import { BloggerCard } from '../../index'
 import classes from './bloggers.module.css'
 
 interface BloggersProps {
-  bloggers: Array<{ title: string; blogUrl: string; highlight: string; youtubeUrl: string; facebookUrl: string; twitterUrl: string }>
+  bloggers: Array<{
+    title: string
+    blogUrl: string
+    highlight: string
+    youtubeUrl: string
+    facebookUrl: string
+    twitterUrl: string
+  }>
 }
 
 function Bloggers(props: BloggersProps) {
@@ -28,7 +35,7 @@ function Bloggers(props: BloggersProps) {
       </div>
       <div className={classes.linkTopFoodBlogs}>
         <Link href="https://blog.feedspot.com/indian_food_blogs/?_src=search">
-          <a target="_blank">
+          <a target="_blank" rel="noreferrer">
             See top 100 indian food blogs <div className={classes.rightArrow}>&#8594;</div>
           </a>
         </Link>

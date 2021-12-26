@@ -22,7 +22,7 @@ function Recipe(props: RecipeProps) {
           <>
             <div className={classes.footerText}>
               <Link href={props.url}>
-                <a target="_blank" className={classes.footerLink}>
+                <a target="_blank" className={classes.footerLink} rel="noreferrer">
                   {props.name}
                 </a>
               </Link>

@@ -18,7 +18,7 @@ function About() {
       <p className={classes.paragraph}>
         There are many other websites and blogs that also has exciting, delicious and healthy recipes. It is not
         possible for me to collect data from all those websites or blogs. Therefore, i have selected the top 3 ones from{' '}
-        <a href="https://blog.feedspot.com/" target="_blank">
+        <a href="https://blog.feedspot.com/" target="_blank" rel="noreferrer">
           feedspot
         </a>
         .
@@ -29,11 +29,11 @@ function About() {
       </p>
       <p className={classes.paragraph}>
         To know more about me and my work, please visit my{' '}
-        <a className={classes.link} href="https://github.com/pratapreddy15" target="_blank">
+        <a className={classes.link} href="https://github.com/pratapreddy15" target="_blank" rel="noreferrer">
           github
         </a>{' '}
         and{' '}
-        <a className={classes.link} href="https://www.linkedin.com/in/pratapreddy15" target="_blank">
+        <a className={classes.link} href="https://www.linkedin.com/in/pratapreddy15" target="_blank" rel="noreferrer">
           linkedin
         </a>{' '}
         profile.
