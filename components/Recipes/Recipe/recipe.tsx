@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
-import { ImageLoader } from '../../'
+import { ImageLoader, LoadableCard } from '../../'
 import classes from './recipe.module.css'
 
 interface RecipeProps {
@@ -14,28 +14,22 @@ interface RecipeProps {
 }
 
 function Recipe(props: RecipeProps) {
-  const [imageLoaded, setImageLoaded] = useState(false)
-
   return (
     <li data-recipe data-recipeid={props.id} data-categoryid={props.categoryId} className={classes.item}>
-      <div className={classes.photo}>
-        {!imageLoaded && <ImageLoader />}
-        <Image
-          objectFit="cover"
-          className={classes.image}
-          src={props.imageSource}
-          layout="fill"
-          alt={props.name}
-          onLoadingComplete={(e) => setImageLoaded(true)}
-        />
-      </div>
-      <div className={classes.footer}>
-        <Link href={props.url}>
-          <a className={classes.linkToRecipe} target="_blank">
-            {props.name}
-          </a>
-        </Link>
-      </div>
+      <LoadableCard
+        cardImage={{ imageSource: props.imageSource, imageTitle: props.name }}
+        footer={
+          <>
+            <div className={classes.footerText}>
+              <Link href={props.url}>
+                <a target="_blank" className={classes.footerLink}>
+                  {props.name}
+                </a>
+              </Link>
+            </div>
+          </>
+        }
+      />
     </li>
   )
 }

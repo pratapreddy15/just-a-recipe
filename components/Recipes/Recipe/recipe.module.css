@@ -16,11 +16,24 @@
   margin: 0.8rem 1rem;
 }
 
-.linkToRecipe {
+.footerLink {
   font-size: 1.2rem;
-  color: #ae2012;
+  color: #fff;
 }
 
-.linkToRecipe:hover {
+.footerLink:hover {
   color: #ff1500;
+}
+
+.footerText {
+  color: #fff;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  min-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
