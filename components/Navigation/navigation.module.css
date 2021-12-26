@@ -17,7 +17,7 @@
   animation-name: navOpenAnimation;
   animation-duration: 0.45s;
   animation-iteration-count: 1;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
 
@@ -25,7 +25,7 @@
   animation-name: navCloseAnimation;
   animation-duration: 0.45s;
   animation-iteration-count: 1;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
 

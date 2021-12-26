@@ -34,10 +34,10 @@ function Navigation() {
           <Link href="/categories">Categories</Link>
         </li>
         <li className={classes['navigation__list--item']}>
-          <Link href="#">About</Link>
+          <Link href="/about">About</Link>
         </li>
         <li className={classes['navigation__list--item']}>
-          <Link href="#">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </li>
       </ul>
     </div>
