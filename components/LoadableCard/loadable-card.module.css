@@ -10,7 +10,7 @@
 
 .footer {
   position: absolute;
-  padding: 0.2rem 1rem;
+  padding: 0.2rem 0.5rem;
   bottom: 0;
   width: 100%;
   display: flex;
