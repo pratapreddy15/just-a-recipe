@@ -58,7 +58,7 @@
 
 .picklist__list--item {
   position: relative;
-  padding: 0.8rem 1rem;
+  padding: 20px 15px;
   background-color: rgb(215, 215, 215);
   font-size: 1.2rem;
 }
