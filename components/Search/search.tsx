@@ -126,9 +126,10 @@ function Search({ recipeCategories }: { recipeCategories: Array<{ id: string; na
                 />
               ))}
             </ul>
-            {state.lastDisplayedRecipeIndex < state.recipes.length - 1 && (
-              <RecipeFooter isRecipesLoading={state.isRecipesLoading} loadRecipesHandler={loadMoreRecipes} />
-            )}
+            {state.recipes.length > maxRecipesToDisplay &&
+              state.lastDisplayedRecipeIndex < state.recipes.length - 1 && (
+                <RecipeFooter isRecipesLoading={state.isRecipesLoading} loadRecipesHandler={loadMoreRecipes} />
+              )}
           </>
         )}
       </div>
