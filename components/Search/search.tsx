@@ -1,31 +1,46 @@
 import { FormEvent, useReducer, useRef } from 'react'
 
-import { RecipeSearchResult, RecipeDetail } from '../../types/recipe'
-import { Recipe, RecipeHeader, RecipeFooter, Picklist } from '..'
+import { RecipeSearchResult, RecipeDetail, RecipeCategory } from '../../types/recipe'
+import { Recipe, RecipeHeader, RecipeFooter, Picklist, APIStatusBar } from '..'
 import { SEARCH_RECIPE_ACTION_TYPES, searchReducer } from './searchReducer'
 import { RECIPE_CATEGORIES_TAGS } from '../../constants/recipe'
 import classes from './search.module.css'
 
-function Search() {
+function Search({ recipeCategories }: { recipeCategories: Array<{ id: string; name: string }> }) {
   const maxRecipesToDisplay = 10
+  const selectedOptions: string[] = []
   const [state, dispatch] = useReducer(searchReducer, {
     recipes: [],
     isRecipesLoading: false,
-    lastDisplayedRecipeIndex: -1
+    lastDisplayedRecipeIndex: -1,
+    hasError: false,
+    errorMessage: ''
   })
 
   const inputRef = useRef<HTMLInputElement>(null)
+  const onSelectOption = (value: string) => {
+    if (!selectedOptions.includes(value)) selectedOptions.push(value)
+  }
+
+  const onDeselectOption = (value: string) => {
+    const indexOfSelectedOption = selectedOptions.findIndex((option) => option === value)
+    if (indexOfSelectedOption > -1) {
+      selectedOptions.splice(indexOfSelectedOption, 1)
+    }
+  }
 
   const recipesToDisplay = state.recipes.slice(0, state.lastDisplayedRecipeIndex + maxRecipesToDisplay)
 
   const formSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
     const searchText = inputRef.current ? inputRef.current.value.trim() : null
-    if (searchText) {
+    if (searchText || selectedOptions.length > 0) {
       fetch(`/api/search`, {
         method: 'POST',
         body: JSON.stringify({
-          searchText: searchText
+          searchText: searchText,
+          recipeCategories: selectedOptions
         })
       })
         .then((response) => response.json())
@@ -41,6 +56,11 @@ function Search() {
           })
         })
         .catch((err) => console.error(err))
+    } else {
+      dispatch({
+        type: SEARCH_RECIPE_ACTION_TYPES.SET_ERROR,
+        payload: { errorMessage: 'Invalid filter. Either search text or recipe category must be provided.' }
+      })
     }
   }
 
@@ -56,6 +76,15 @@ function Search() {
 
   return (
     <div className={classes.search}>
+      {state.hasError && state.errorMessage && (
+        <APIStatusBar
+          status="ERROR"
+          message={state.errorMessage}
+          closeHandler={() => {
+            dispatch({ type: SEARCH_RECIPE_ACTION_TYPES.CLEAR_ERROR, payload: {} })
+          }}
+        />
+      )}
       <form className={classes.form} onSubmit={formSubmitHandler}>
         <div className={classes.formControl}>
           <label className={classes.formLabel} htmlFor="keywordInput">
@@ -64,10 +93,13 @@ function Search() {
           <input id="keywordInput" className={classes.searchInput} type="text" ref={inputRef} />
         </div>
         <div className={classes.formControl}>
-          <label className={classes.formLabel} htmlFor="categoryTags">
-            Recipe category tags
-          </label>
-          <Picklist options={RECIPE_CATEGORIES_TAGS.map((tag, i) => ({ id: `option-${i}`, label: tag }))} />
+          <label className={classes.formLabel}>Recipe category</label>
+          <Picklist
+            noSelectedItemText="Any recipe category"
+            options={recipeCategories.map((category, i) => ({ id: `option-${i}`, label: category.name }))}
+            selectOptionHandler={onSelectOption}
+            deselectOptionHandler={onDeselectOption}
+          />
         </div>
         <div className={classes.formActions}>
           <button className={classes.formButton} type="submit">

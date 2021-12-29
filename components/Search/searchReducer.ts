@@ -4,12 +4,15 @@ type SearchStateType = {
   recipes: RecipeDetail[]
   isRecipesLoading: boolean
   lastDisplayedRecipeIndex: number
+  hasError: boolean
+  errorMessage: string
 }
 
 type SearchActionPayload = {
   recipes?: RecipeDetail[]
   isRecipesLoading?: boolean
   lastDisplayedRecipeIndex?: number
+  errorMessage?: string
 }
 
 type SearchReducerAction = {
@@ -21,7 +24,9 @@ export enum SEARCH_RECIPE_ACTION_TYPES {
   SET_STATE,
   SET_RECIPES,
   SET_IS_RECIPES_LOADING,
-  SET_LAST_RECIPE_INDEX
+  SET_LAST_RECIPE_INDEX,
+  SET_ERROR,
+  CLEAR_ERROR
 }
 
 export const searchReducer = (state: SearchStateType, action: SearchReducerAction): SearchStateType => {
@@ -55,6 +60,18 @@ export const searchReducer = (state: SearchStateType, action: SearchReducerActio
       return {
         ...state,
         lastDisplayedRecipeIndex: action.payload.lastDisplayedRecipeIndex || -1
+      }
+    case SEARCH_RECIPE_ACTION_TYPES.SET_ERROR:
+      return {
+        ...state,
+        hasError: true,
+        errorMessage: action.payload.errorMessage || ''
+      }
+    case SEARCH_RECIPE_ACTION_TYPES.CLEAR_ERROR:
+      return {
+        ...state,
+        hasError: false,
+        errorMessage: ''
       }
     default:
       return {

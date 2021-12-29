@@ -6,7 +6,10 @@ import { sort } from '../../../utils/client'
 import classes from './picklist.module.css'
 
 interface PicklistProps {
+  noSelectedItemText?: string
   options: Array<{ id: string; label: string }>
+  selectOptionHandler: (item: string) => void
+  deselectOptionHandler: (item: string) => void
 }
 
 const sortPicklistItems = (items: PicklistItemType[]) => {
@@ -44,8 +47,13 @@ function Picklist(props: PicklistProps) {
       const selectedItem = state.filteredItems.find((item) => item.id === id)
       const originalItem = updatedItems.find((item) => item.id === selectedItem?.id)
       if (selectedItem && originalItem) {
-        selectedItem.selected = true
         originalItem.selected = isSelected
+
+        if (isSelected) {
+          props.selectOptionHandler(selectedItem.label)
+        } else {
+          props.deselectOptionHandler(selectedItem.label)
+        }
       }
       dispatch({
         type: PICLIST_ACTION_TYPES.SET_STATE,
@@ -73,7 +81,9 @@ function Picklist(props: PicklistProps) {
     <div className={classes.picklist} data-expanded={state.isPicklistExpanded}>
       <div className={classes.selectedItem} onClick={togglePicklistItemsVisibility}>
         <div className={classes.selectedItemText}>{`${
-          state.selectedItemsCount === 0 ? 'None Selected' : `${state.selectedItemsCount} Selected`
+          state.selectedItemsCount === 0
+            ? props.noSelectedItemText || 'None selected'
+            : `${state.selectedItemsCount} Selected`
         }`}</div>
         <div className={classes.icon}>
           <img src="../../images/down-arrow.svg" alt="Expand or collapse picklist" />
