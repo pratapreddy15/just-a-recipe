@@ -34,6 +34,9 @@ function Navigation() {
           <Link href="/categories">Categories</Link>
         </li>
         <li className={classes['navigation__list--item']}>
+          <Link href="/search">Search</Link>
+        </li>
+        <li className={classes['navigation__list--item']}>
           <Link href="/about">About</Link>
         </li>
         <li className={classes['navigation__list--item']}>

@@ -4,7 +4,7 @@ import path from 'path'
 import { RecipeCategories } from '../../components'
 import { RecipeCategory, RecipeCategoryWithCount, RecipeDetail, RecipeCategoryGallery } from '../../types/recipe'
 import { AppContext, NAVIGATION_MENU_STATES } from '../../context/context-provider'
-import { getFileContent } from '../../utils/utilities'
+import { getFileContent } from '../../utils/server'
 
 interface CategoriesPageProps {
   recipeCategories: RecipeCategoryWithCount[]

@@ -1,0 +1,11 @@
+.headerText {
+  top: 0;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+  position: sticky;
+  position: -webkit-sticky;
+  z-index: 999;
+  background-color: #fff;
+}

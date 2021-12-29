@@ -1,0 +1,43 @@
+.input {
+  display: none;
+}
+
+.square {
+  position: relative;
+  border: 1px solid #3d3d3d;
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.innerSquare {
+  position: absolute;
+  display: inline-block;
+  border-radius: 2px;
+  background-color: unset;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.label {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  padding-left: 3rem;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.input:checked + .square .innerSquare {
+  background-color: green;
+}

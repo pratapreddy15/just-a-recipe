@@ -6,7 +6,7 @@ import path from 'path'
 import { AppContext, NAVIGATION_MENU_STATES } from '../context/context-provider'
 import { RecipeCategory, RecipeDetail, RecipeCategoryGallery, RecipeCategoryWithCount } from '../types/recipe'
 import { Hero, Bloggers, RecipeCategories } from '../components'
-import { getFileContent } from '../utils/utilities'
+import { getFileContent } from '../utils/server'
 
 /**
  * xs: 360px

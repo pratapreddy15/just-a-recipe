@@ -1,6 +1,6 @@
 import { useReducer } from 'react'
 
-import { Recipe, ImageLoader } from '../'
+import { Recipe, RecipeHeader, RecipeFooter } from '../'
 import { RECIPES_ACTION_TYPES, recipesReducer } from './recipes-reducer'
 import { RecipeDetail } from '../../types/recipe'
 import classes from './recipes.module.css'
@@ -49,9 +49,7 @@ function Recipes(props: RecipesProps) {
 
   return (
     <div className={classes.recipes}>
-      <div className={classes.headerText}>
-        <h4>{`Showing ${state.recipes.length} recipes of ${props.totalRecipes}`}</h4>
-      </div>
+      <RecipeHeader totalRecipesDisplayed={state.recipes.length} totalRecipes={props.totalRecipes} />
       <ul data-recipes className={classes.list}>
         {state.recipes.map((rec) => (
           <Recipe
@@ -64,13 +62,7 @@ function Recipes(props: RecipesProps) {
           />
         ))}
       </ul>
-      {!state.done && (
-        <div className={classes.recipesFooter}>
-          <button className={classes.loadMoreButton} onClick={loadMoreRecipes} disabled={state.isRecipesLoading}>
-            {state.isRecipesLoading ? 'Loading...' : 'Load More Recipes'}
-          </button>
-        </div>
-      )}
+      {!state.done && <RecipeFooter isRecipesLoading={state.isRecipesLoading} loadRecipesHandler={loadMoreRecipes} />}
     </div>
   )
 }
