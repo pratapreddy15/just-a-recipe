@@ -8,24 +8,30 @@ import classes from './search.module.css'
 
 function Search({ recipeCategories }: { recipeCategories: Array<{ id: string; name: string }> }) {
   const maxRecipesToDisplay = 10
-  const selectedOptions: string[] = []
   const [state, dispatch] = useReducer(searchReducer, {
     recipes: [],
     isRecipesLoading: false,
     lastDisplayedRecipeIndex: -1,
+    selectedOptions: [],
     hasError: false,
     errorMessage: ''
   })
 
   const inputRef = useRef<HTMLInputElement>(null)
   const onSelectOption = (value: string) => {
-    if (!selectedOptions.includes(value)) selectedOptions.push(value)
+    const selectedOptions = state.selectedOptions
+    if (!selectedOptions.includes(value)) {
+      selectedOptions.push(value)
+      dispatch({ type: SEARCH_RECIPE_ACTION_TYPES.SET_SELECTED_OPTIONS, payload: { selectedOptions: selectedOptions } })
+    }
   }
 
   const onDeselectOption = (value: string) => {
+    const selectedOptions = state.selectedOptions
     const indexOfSelectedOption = selectedOptions.findIndex((option) => option === value)
     if (indexOfSelectedOption > -1) {
       selectedOptions.splice(indexOfSelectedOption, 1)
+      dispatch({ type: SEARCH_RECIPE_ACTION_TYPES.SET_SELECTED_OPTIONS, payload: { selectedOptions: selectedOptions } })
     }
   }
 
@@ -35,12 +41,12 @@ function Search({ recipeCategories }: { recipeCategories: Array<{ id: string; na
     e.preventDefault()
 
     const searchText = inputRef.current ? inputRef.current.value.trim() : null
-    if (searchText || selectedOptions.length > 0) {
+    if (searchText || state.selectedOptions.length > 0) {
       fetch(`/api/search`, {
         method: 'POST',
         body: JSON.stringify({
           searchText: searchText,
-          recipeCategories: selectedOptions
+          recipeCategories: state.selectedOptions
         })
       })
         .then((response) => response.json())
