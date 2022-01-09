@@ -19,15 +19,16 @@ function Checkbox(props: CheckboxProps) {
         onChange={toggleHandler}
         checked={props.isChecked}
         id={`checkbox-${props.id}`}
+        data-testid={`checkbox-${props.id}`}
         name={`checkbox-${props.id}`}
         className={classes.input}
         type="checkbox"
         data-identifier={props.id}
       />
-      <div className={classes.square}>
-        <span className={classes.innerSquare}></span>
+      <div data-testid="checkbox-outer-square" className={classes.square}>
+        <span data-testid="checkbox-inner-square" className={classes.innerSquare}></span>
       </div>
-      <label className={classes.label} htmlFor={`checkbox-${props.id}`}>
+      <label data-testid="checkbox-label" className={classes.label} htmlFor={`checkbox-${props.id}`}>
         {props.label}
       </label>
     </>

@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react'
 import path from 'path'
 
 import { Search } from '../../components'
+import { APP_PAGES } from '../../constants/pages'
 import { RecipeCategory } from '../../types/recipe'
 import { getFileContent } from '../../utils/server'
 import { AppContext, NAVIGATION_MENU_STATES } from '../../context/context-provider'
@@ -17,6 +18,7 @@ function SearchPage(props: SearchPageProps) {
     if (appContext.navigationMenuState === NAVIGATION_MENU_STATES.OPEN) {
       appContext.setNavigationMenuState(NAVIGATION_MENU_STATES.CLOSED)
     }
+    appContext.setActivePage(APP_PAGES.SEARCH)
   }, [])
 
   return <Search recipeCategories={props.recipeCategories} />

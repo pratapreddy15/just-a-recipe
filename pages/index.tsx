@@ -4,6 +4,7 @@ import Head from 'next/head'
 import path from 'path'
 
 import { AppContext, NAVIGATION_MENU_STATES } from '../context/context-provider'
+import { APP_PAGES } from '../constants/pages'
 import { RecipeCategory, RecipeDetail, RecipeCategoryGallery, RecipeCategoryWithCount } from '../types/recipe'
 import { Hero, Bloggers, RecipeCategories } from '../components'
 import { getFileContent } from '../utils/server'
@@ -35,9 +36,9 @@ const HomePage: NextPage<HomePageProps> = (props: HomePageProps) => {
     if (appContext.navigationMenuState === NAVIGATION_MENU_STATES.OPEN) {
       appContext.setNavigationMenuState(NAVIGATION_MENU_STATES.CLOSED)
     }
+    appContext.setActivePage(APP_PAGES.HOME)
   }, [])
   const categoriesGallery: RecipeCategoryGallery[] = props.featuredCategories.map((category) => {
-    // const countMap = props.recipesCountMap.find((count) => count.categoryId === category.id)
     const photoDirectoryName = category.name.replace(' ', '-')
     return {
       id: category.id,

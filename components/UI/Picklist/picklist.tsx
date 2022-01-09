@@ -78,9 +78,9 @@ function Picklist(props: PicklistProps) {
   }
 
   return (
-    <div className={classes.picklist} data-expanded={state.isPicklistExpanded}>
-      <div className={classes.selectedItem} onClick={togglePicklistItemsVisibility}>
-        <div className={classes.selectedItemText}>{`${
+    <div data-testid="picklist" className={classes.picklist} data-expanded={state.isPicklistExpanded}>
+      <div className={classes.selectedItem} data-testid="picklist-toggler" onClick={togglePicklistItemsVisibility}>
+        <div data-testid="picklist-selected-options-count" className={classes.selectedItemText}>{`${
           state.selectedItemsCount === 0
             ? props.noSelectedItemText || 'None selected'
             : `${state.selectedItemsCount} Selected`
@@ -89,12 +89,12 @@ function Picklist(props: PicklistProps) {
           <img src="../../images/down-arrow.svg" alt="Expand or collapse picklist" />
         </div>
       </div>
-      <ul className={classes.picklist__list}>
-        <li className={classes['picklist__list--item']}>
+      <ul data-testid="picklist-options" className={classes.picklist__list}>
+        <li data-testid="picklist-option" className={classes['picklist__list--item']}>
           <input className={classes.filterInput} type="text" onChange={onFilterTextChange} />
         </li>
         {sortPicklistItems(state.filteredItems).map((option) => (
-          <li key={option.id} className={classes['picklist__list--item']}>
+          <li data-testid="picklist-option" key={option.id} className={classes['picklist__list--item']}>
             <Checkbox label={option.label} id={option.id} onToggle={onSelectionChange} isChecked={option.selected} />
           </li>
         ))}
