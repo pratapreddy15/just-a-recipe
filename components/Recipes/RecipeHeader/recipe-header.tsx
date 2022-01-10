@@ -7,7 +7,7 @@ interface RecipeHeaderProps {
 
 function RecipeHeader(props: RecipeHeaderProps) {
   return (
-    <div className={classes.headerText}>
+    <div data-testid="recipe-header" className={classes.headerText}>
       <h4>{`Showing ${props.totalRecipesDisplayed} recipes of ${props.totalRecipes}`}</h4>
     </div>
   )

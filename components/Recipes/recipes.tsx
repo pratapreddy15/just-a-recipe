@@ -48,7 +48,7 @@ function Recipes(props: RecipesProps) {
   }
 
   return (
-    <div className={classes.recipes}>
+    <div data-testid="recipes" className={classes.recipes}>
       <RecipeHeader totalRecipesDisplayed={state.recipes.length} totalRecipes={props.totalRecipes} />
       <ul data-recipes className={classes.list}>
         {state.recipes.map((rec) => (

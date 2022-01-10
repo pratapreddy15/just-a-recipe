@@ -9,9 +9,11 @@ interface APIStatusBarProps {
 
 function APIStatusBar(props: APIStatusBarProps) {
   return (
-    <div className={`${classes.toastr} ${classes[props.status.toLowerCase()]}`}>
-      <div className={classes.message}>{props.message}</div>
-      <button className={classes.closeButton} onClick={() => props.closeHandler()}>
+    <div data-testid="api-status-bar" className={`${classes.toastr} ${classes[props.status.toLowerCase()]}`}>
+      <div data-testid="api-status-message" className={classes.message}>
+        {props.message}
+      </div>
+      <button data-testid="api-status-close" className={classes.closeButton} onClick={() => props.closeHandler()}>
         &#215;
       </button>
     </div>

@@ -7,8 +7,13 @@ interface RecipeFooterProps {
 
 function RecipeFooter(props: RecipeFooterProps) {
   return (
-    <div className={classes.recipesFooter}>
-      <button className={classes.loadMoreButton} onClick={props.loadRecipesHandler} disabled={props.isRecipesLoading}>
+    <div data-testid="recipe-footer" className={classes.recipesFooter}>
+      <button
+        data-testid="load-more-button"
+        className={classes.loadMoreButton}
+        onClick={props.loadRecipesHandler}
+        disabled={props.isRecipesLoading}
+      >
         {props.isRecipesLoading ? 'Loading...' : 'Load More Recipes'}
       </button>
     </div>

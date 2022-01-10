@@ -4,6 +4,7 @@ import { RecipeSearchResult, RecipeDetail, RecipeCategory } from '../../types/re
 import { Recipe, RecipeHeader, RecipeFooter, Picklist, APIStatusBar } from '..'
 import { SEARCH_RECIPE_ACTION_TYPES, searchReducer } from './searchReducer'
 import { RECIPE_CATEGORIES_TAGS } from '../../constants/recipe'
+import { searchRecipes } from './search-event-handlers'
 import classes from './search.module.css'
 
 function Search({ recipeCategories }: { recipeCategories: Array<{ id: string; name: string }> }) {
@@ -37,35 +38,21 @@ function Search({ recipeCategories }: { recipeCategories: Array<{ id: string; na
 
   const recipesToDisplay = state.recipes.slice(0, state.lastDisplayedRecipeIndex + maxRecipesToDisplay)
 
-  const formSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const searchText = inputRef.current ? inputRef.current.value.trim() : null
-    if (searchText || state.selectedOptions.length > 0) {
-      fetch(`/api/search`, {
-        method: 'POST',
-        body: JSON.stringify({
-          searchText: searchText,
-          recipeCategories: state.selectedOptions
-        })
+  const submitFormData = async (searchText: string, selectedCategories: string[]) => {
+    try {
+      const searchedRecipes = await searchRecipes(searchText, selectedCategories)
+      dispatch({
+        type: SEARCH_RECIPE_ACTION_TYPES.SET_STATE,
+        payload: {
+          recipes: searchedRecipes.recipes,
+          isRecipesLoading: false,
+          lastDisplayedRecipeIndex: 0
+        }
       })
-        .then((response) => response.json())
-        .then((result) => {
-          const searchResult = result as RecipeSearchResult
-          dispatch({
-            type: SEARCH_RECIPE_ACTION_TYPES.SET_STATE,
-            payload: {
-              recipes: searchResult.recipes,
-              isRecipesLoading: false,
-              lastDisplayedRecipeIndex: 0
-            }
-          })
-        })
-        .catch((err) => console.error(err))
-    } else {
+    } catch (error: any) {
       dispatch({
         type: SEARCH_RECIPE_ACTION_TYPES.SET_ERROR,
-        payload: { errorMessage: 'Invalid filter. Either search text or recipe category must be provided.' }
+        payload: { errorMessage: error.message }
       })
     }
   }
@@ -81,7 +68,7 @@ function Search({ recipeCategories }: { recipeCategories: Array<{ id: string; na
   }
 
   return (
-    <div className={classes.search}>
+    <div data-testid="search" className={classes.search}>
       {state.hasError && state.errorMessage && (
         <APIStatusBar
           status="ERROR"
@@ -91,32 +78,40 @@ function Search({ recipeCategories }: { recipeCategories: Array<{ id: string; na
           }}
         />
       )}
-      <form className={classes.form} onSubmit={formSubmitHandler}>
-        <div className={classes.formControl}>
+      <form
+        data-testid="search-form"
+        className={classes.form}
+        onSubmit={(e: FormEvent<HTMLFormElement>) => {
+          e.preventDefault()
+          const searchText = inputRef.current ? inputRef.current.value.trim() : ''
+          submitFormData(searchText, state.selectedOptions)
+        }}
+      >
+        <div data-testid="search-form-control" className={classes.formControl}>
           <label className={classes.formLabel} htmlFor="keywordInput">
             Recipe name that contains
           </label>
           <input id="keywordInput" className={classes.searchInput} type="text" ref={inputRef} />
         </div>
-        <div className={classes.formControl}>
+        <div data-testid="search-form-control" className={classes.formControl}>
           <label className={classes.formLabel}>Recipe category</label>
           <Picklist
             noSelectedItemText="Any recipe category"
-            options={recipeCategories.map((category, i) => ({ id: `option-${i}`, label: category.name }))}
+            options={recipeCategories.map((category) => ({ id: `option-${category.id}`, label: category.name }))}
             selectOptionHandler={onSelectOption}
             deselectOptionHandler={onDeselectOption}
           />
         </div>
-        <div className={classes.formActions}>
-          <button className={classes.formButton} type="submit">
+        <div data-testid="search-footer" className={classes.formActions}>
+          <button data-testid="search-form-submit-button" className={classes.formButton} type="submit">
             Search
           </button>
-          <button className={classes.formButton} type="reset">
+          <button data-testid="search-form-reset-button" className={classes.formButton} type="reset">
             Clear
           </button>
         </div>
       </form>
-      <div className={classes.searchResults}>
+      <div data-testid="search-result" className={classes.searchResults}>
         {state.lastDisplayedRecipeIndex > -1 && state.recipes.length > 0 && (
           <>
             <RecipeHeader totalRecipesDisplayed={recipesToDisplay.length} totalRecipes={state.recipes.length} />
