@@ -7,8 +7,9 @@ function Navbar() {
   const appContext = useContext(AppContext)
 
   return (
-    <nav className="nav vertically-centered">
+    <nav data-testid="navbar" className="nav vertically-centered">
       <button
+        data-testid="button-menu"
         onClick={() => {
           appContext.setNavigationMenuState(NAVIGATION_MENU_STATES.OPEN)
         }}

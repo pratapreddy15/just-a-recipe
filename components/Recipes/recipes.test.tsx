@@ -28,6 +28,7 @@ describe('Recipes', () => {
 
   afterEach(() => {
     disableFetchMocks()
+    jest.clearAllMocks()
   })
 
   const mockFetchAPI = (responseMock: { recipes: RecipeDetail[]; done: boolean }) => {

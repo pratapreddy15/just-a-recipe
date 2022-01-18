@@ -70,11 +70,15 @@ function Hero(props: HeroProps) {
   }
 
   return (
-    <section className={classes.hero}>
-      <button onClick={showPrevImage} className={`${classes.prevImage} ${classes.imageNavButton} 'clear-space'`}>
+    <section data-testid="hero" className={classes.hero}>
+      <button
+        data-testid="hero-image-nav-prev"
+        onClick={showPrevImage}
+        className={`${classes.prevImage} ${classes.imageNavButton} 'clear-space'`}
+      >
         <IconLeft />
       </button>
-      <div className={classes.heroImages}>
+      <div data-testid="hero-images" className={classes.heroImages}>
         {props.heroContent.map((data, i) => {
           const datasets = getDatasetsForHeroImageElement(i)
 
@@ -90,10 +94,15 @@ function Hero(props: HeroProps) {
           )
         })}
       </div>
-      <button onClick={showNextImage} className={`${classes.nextImage} ${classes.imageNavButton} 'clear-space'`}>
+      <button
+        data-testid="hero-image-nav-next"
+        onClick={showNextImage}
+        className={`${classes.nextImage} ${classes.imageNavButton} 'clear-space'`}
+      >
         <IconRight />
       </button>
-      <button onClick={scrollDown} className={`${classes.scrollDownButton} 'clear-space`}>
+      <button data-testid="hero-scroll-down" onClick={scrollDown}
+        className={`${classes.scrollDownButton} 'clear-space`}>
         <IconArrowCircleDown />
       </button>
     </section>

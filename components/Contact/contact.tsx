@@ -38,15 +38,15 @@ function Contact() {
           }
         })
         .catch((err) => {
-          console.error(err)
+          // console.error(err)
           setFeedbackSubmissionStatus(FEEDBACK_SUBMISSION_STATUS.ERROR)
         })
     }
   }
 
   return (
-    <div className={classes.contact}>
-      <div className={classes.formHeader}>
+    <div data-testid="contact" className={classes.contact}>
+      <div data-testid="contact-header" className={classes.formHeader}>
         <span>Get in touch or leave a feedback</span>
       </div>
       {feedbackSubmissionStatus === FEEDBACK_SUBMISSION_STATUS.ERROR && (
@@ -63,30 +63,50 @@ function Contact() {
           closeHandler={() => setFeedbackSubmissionStatus(FEEDBACK_SUBMISSION_STATUS.NONE)}
         />
       )}
-      <form className={classes.form} onSubmit={(e) => formSubmitHandler(e)}>
-        <div className={classes.formControl}>
+      <form data-testid="contact-form" className={classes.form} onSubmit={(e) => formSubmitHandler(e)}>
+        <div data-testid="contact-form-control" className={classes.formControl}>
           <label htmlFor="name" className={classes.formLabel}>
             Your name
           </label>
-          <input required type="text" id="name" className={classes.formInput} ref={nameInputRef} />
+          <input
+            data-testid="form-input-name"
+            required
+            type="text"
+            id="name"
+            className={classes.formInput}
+            ref={nameInputRef}
+          />
         </div>
-        <div className={classes.formControl}>
+        <div data-testid="contact-form-control" className={classes.formControl}>
           <label htmlFor="email" className={classes.formLabel}>
             Your email
           </label>
-          <input required type="email" id="email" className={classes.formInput} ref={emailInputRef} />
+          <input
+            data-testid="form-input-email"
+            required
+            type="email"
+            id="email"
+            className={classes.formInput}
+            ref={emailInputRef}
+          />
         </div>
-        <div className={classes.formControl}>
+        <div data-testid="contact-form-control" className={classes.formControl}>
           <label htmlFor="messageText" className={classes.formLabel}>
             Message
           </label>
-          <textarea required id="messageText" className={classes.textarea} ref={messageInputRef}></textarea>
+          <textarea
+            data-testid="form-input-message"
+            required
+            id="messageText"
+            className={classes.textarea}
+            ref={messageInputRef}
+          ></textarea>
         </div>
-        <div className={classes.formAction}>
-          <button className={classes.formButton} type="submit">
+        <div data-testid="contact-form-action" className={classes.formAction}>
+          <button data-testid="form-button-submit" className={classes.formButton} type="submit">
             Submit
           </button>
-          <button className={classes.formButton} type="reset">
+          <button data-testid="form-button-reset" className={classes.formButton} type="reset">
             Reset
           </button>
         </div>

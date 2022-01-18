@@ -14,28 +14,46 @@ interface BloggerCardProps {
 
 function BloggerCard(props: BloggerCardProps) {
   return (
-    <div className={classes.card}>
-      <div className={classes.title}>
+    <div data-testid="blogger-card" className={classes.card}>
+      <div data-testid="blogger-card-title" className={classes.title}>
         <Link href={props.blogUrl}>
-          <a className={classes.linkToBlog} target="_blank" rel="noreferrer">
+          <a data-testid="blogger-card-title-link" className={classes.linkToBlog} target="_blank" rel="noreferrer">
             {props.bloggerTitle}
           </a>
         </Link>
       </div>
       <div className={classes.highlight}>{props.highlight}</div>
-      <div className={classes.socialMedias}>
-        <div className={classes.youtube}>
-          <a className={classes.link} href={props.youtubeUrl} target="_blank" rel="noreferrer">
+      <div data-testid="blogger-card-socialmedias" className={classes.socialMedias}>
+        <div data-testid="blogger-card-youtube" className={classes.youtube}>
+          <a
+            data-testid="blogger-card-youtube-link"
+            className={classes.link}
+            href={props.youtubeUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image height={30} width={30} src="/images/youtube-icon.svg" />
           </a>
         </div>
-        <div className={classes.facebook}>
-          <a className={classes.link} target="_blank" href={props.facebookUrl} rel="noreferrer">
+        <div data-testid="blogger-card-facebook" className={classes.facebook}>
+          <a
+            data-testid="blogger-card-facebook-link"
+            className={classes.link}
+            target="_blank"
+            href={props.facebookUrl}
+            rel="noreferrer"
+          >
             <Image height={30} width={30} src="/images/facebook-icon.svg" />
           </a>
         </div>
-        <div className={classes.twitter}>
-          <a className={classes.link} target="_blank" href={props.twitterUrl} rel="noreferrer">
+        <div data-testid="blogger-card-twitter" className={classes.twitter}>
+          <a
+            data-testid="blogger-card-twitter-link"
+            className={classes.link}
+            target="_blank"
+            href={props.twitterUrl}
+            rel="noreferrer"
+          >
             <Image height={30} width={30} src="/images/twitter-icon.svg" />
           </a>
         </div>
