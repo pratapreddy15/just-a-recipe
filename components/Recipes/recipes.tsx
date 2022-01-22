@@ -1,6 +1,6 @@
-import { useEffect, useReducer } from 'react'
+import { useReducer } from 'react'
 
-import { Recipe } from '../'
+import { Recipe, RecipeHeader, RecipeFooter } from '../'
 import { RECIPES_ACTION_TYPES, recipesReducer } from './recipes-reducer'
 import { RecipeDetail } from '../../types/recipe'
 import classes from './recipes.module.css'
@@ -17,7 +17,7 @@ interface RecipesProps {
 }
 
 function Recipes(props: RecipesProps) {
-  const [state, dispatch] = useReducer(recipesReducer, { recipes: props.recipes, done: false })
+  const [state, dispatch] = useReducer(recipesReducer, { recipes: props.recipes, done: false, isRecipesLoading: false })
 
   const loadMoreRecipes = () => {
     if (!state.done) {
@@ -27,6 +27,7 @@ function Recipes(props: RecipesProps) {
       const recipeId = lastCard.dataset.recipeid
       const categoryId = lastCard.dataset.categoryid
 
+      dispatch({ type: RECIPES_ACTION_TYPES.SET_RECIPES_LOADING_FLAG, payload: { isRecipesLoading: true } })
       fetch(`/api/categories/${categoryId}?lastRecipeId=${recipeId}`)
         .then((response) => response.json())
         .then((json) => {
@@ -35,7 +36,8 @@ function Recipes(props: RecipesProps) {
             type: RECIPES_ACTION_TYPES.SET_STATE,
             payload: {
               done: result.done,
-              recipes: state.recipes.concat(result.recipes)
+              recipes: state.recipes.concat(result.recipes),
+              isRecipesLoading: false
             }
           })
         })
@@ -46,10 +48,8 @@ function Recipes(props: RecipesProps) {
   }
 
   return (
-    <div className={classes.recipes}>
-      <div className={classes.headerText}>
-        <h4>{`Showing ${state.recipes.length} recipes of ${props.totalRecipes}`}</h4>
-      </div>
+    <div data-testid="recipes" className={classes.recipes}>
+      <RecipeHeader totalRecipesDisplayed={state.recipes.length} totalRecipes={props.totalRecipes} />
       <ul data-recipes className={classes.list}>
         {state.recipes.map((rec) => (
           <Recipe
@@ -62,13 +62,7 @@ function Recipes(props: RecipesProps) {
           />
         ))}
       </ul>
-      {!state.done && (
-        <div className={classes.recipesFooter}>
-          <button className={classes.loadMoreButton} onClick={loadMoreRecipes}>
-            Load More Recipes
-          </button>
-        </div>
-      )}
+      {!state.done && <RecipeFooter isRecipesLoading={state.isRecipesLoading} loadRecipesHandler={loadMoreRecipes} />}
     </div>
   )
 }

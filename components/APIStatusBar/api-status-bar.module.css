@@ -1,0 +1,48 @@
+.toastr {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0 1rem;
+}
+
+.error {
+  background-color: #e63946;
+}
+
+.success {
+  background-color: #02c39a;
+}
+
+.closeButton {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.closeButton:focus,
+.closeButton:active {
+  border: none;
+  outline: none;
+}
+
+@media screen and (max-width: 610px) {
+  .toastr {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+}

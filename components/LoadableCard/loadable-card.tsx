@@ -15,8 +15,8 @@ function LoadableCard(props: CardProps) {
   const { cardImage } = props
 
   return (
-    <div className={classes.loadableCard}>
-      <div className={classes.photo}>
+    <div data-testid='loadable-card' className={classes.loadableCard}>
+      <div data-testid='loadable-card-photo' className={classes.photo}>
         {!isImageLoaded && <ImageLoader />}
         <Image
           src={cardImage.imageSource}
@@ -26,7 +26,7 @@ function LoadableCard(props: CardProps) {
           objectFit="cover"
         />
       </div>
-      <div className={classes.footer}>{props.footer}</div>
+      <div data-testid='loadable-card-footer' className={classes.footer}>{props.footer}</div>
     </div>
   )
 }

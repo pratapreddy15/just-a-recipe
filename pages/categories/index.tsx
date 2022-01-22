@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from 'react'
 import path from 'path'
 
 import { RecipeCategories } from '../../components'
+import { APP_PAGES } from '../../constants/pages'
 import { RecipeCategory, RecipeCategoryWithCount, RecipeDetail, RecipeCategoryGallery } from '../../types/recipe'
 import { AppContext, NAVIGATION_MENU_STATES } from '../../context/context-provider'
-import { getFileContent } from '../../utils/utilities'
+import { getFileContent } from '../../utils/server'
 
 interface CategoriesPageProps {
   recipeCategories: RecipeCategoryWithCount[]
@@ -18,6 +19,7 @@ const CategoriesPage = (props: CategoriesPageProps) => {
     if (appContext.navigationMenuState === NAVIGATION_MENU_STATES.OPEN) {
       appContext.setNavigationMenuState(NAVIGATION_MENU_STATES.CLOSED)
     }
+    appContext.setActivePage(APP_PAGES.CATEGORIES)
   }, [])
 
   const categoriesGallery: RecipeCategoryGallery[] = recipeCategories.map((category) => {

@@ -15,14 +15,20 @@ interface RecipeProps {
 
 function Recipe(props: RecipeProps) {
   return (
-    <li data-recipe data-recipeid={props.id} data-categoryid={props.categoryId} className={classes.item}>
+    <li
+      data-testid="recipe-card"
+      data-recipe
+      data-recipeid={props.id}
+      data-categoryid={props.categoryId}
+      className={classes.item}
+    >
       <LoadableCard
         cardImage={{ imageSource: props.imageSource, imageTitle: props.name }}
         footer={
           <>
             <div className={classes.footerText}>
               <Link href={props.url}>
-                <a target="_blank" className={classes.footerLink} rel="noreferrer">
+                <a data-testid="recipe-card-link" target="_blank" className={classes.footerLink} rel="noreferrer">
                   {props.name}
                 </a>
               </Link>

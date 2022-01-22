@@ -15,15 +15,17 @@ function RecipeCategories(props: { categoriesGallery: RecipeCategoryGallery[]; a
   const categoryHeaderText = isHomePage ? 'Recipe Categories' : `${props.categoriesGallery.length} Recipe Categories`
 
   return (
-    <div className={classes.recipeCategories}>
-      <h3 className={classes.header}>{categoryHeaderText}</h3>
-      <div className={classes.grid}>
-        <ul className={classes.category__list}>
+    <div data-testid="recipe-categories" className={classes.recipeCategories}>
+      <h3 data-testid="recipe-categories-header" className={classes.header}>
+        {categoryHeaderText}
+      </h3>
+      <div data-testid="recipe-categories-grid" className={classes.grid}>
+        <ul data-testid="recipe-categories-list" className={classes.category__list}>
           {categoriesGallery.map((cat, i) => {
             const footerText = `${new Intl.NumberFormat().format(cat.recipesCount)} ${cat.name}`
 
             return (
-              <li className={classes['category__list--item']} key={i}>
+              <li data-testid="recipe-categories-list-item" className={classes['category__list--item']} key={i}>
                 {isHomePage ? (
                   <RecipeCategory
                     key={cat.id}
@@ -57,7 +59,7 @@ function RecipeCategories(props: { categoriesGallery: RecipeCategoryGallery[]; a
       {props.addBrowseAllCategoriesLink && (
         <div className={classes.linkBrowseCategories}>
           <Link href="/categories">
-            <a>
+            <a data-testid="browse-categories-link">
               Browse all categories <div className={classes.rightArrow}>&#8594;</div>
             </a>
           </Link>

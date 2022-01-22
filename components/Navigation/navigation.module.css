@@ -42,6 +42,10 @@
   font-size: 1.5rem;
 }
 
+.navigation__list--item.active a {
+  color: #ff1500;
+}
+
 .navigation__list--item a {
   color: #fff;
   text-transform: uppercase;

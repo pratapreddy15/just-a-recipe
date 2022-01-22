@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import path from 'path'
 
 import { RecipeDetail } from '../../../types/recipe'
-import { getFileContent } from '../../../utils/utilities'
+import { getFileContent } from '../../../utils/server'
 
 type ErrorDetail = {
   errorCode: number

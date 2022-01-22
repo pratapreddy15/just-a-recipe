@@ -24,3 +24,8 @@ export interface RecipeCategoryGallery {
   recipesCount: number
   galleryPhotos: { imageSource: string; imageTitle: string }[]
 }
+
+export interface RecipeSearchResult {
+  count: number
+  recipes: RecipeDetail[]
+}

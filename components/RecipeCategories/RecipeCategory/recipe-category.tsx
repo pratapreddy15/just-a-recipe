@@ -28,6 +28,7 @@ function RecipeCategory(props: RecipeCategoryProps) {
     slideshowMediaImage =
       slideshowState === SLIDESHOW_STATE.PAUSED ? (
         <img
+          data-testid="recipe-category-slideshow-play"
           className={classes.imagePlay}
           src="./images/play-circle.svg"
           alt="Play"
@@ -37,6 +38,7 @@ function RecipeCategory(props: RecipeCategoryProps) {
         />
       ) : (
         <img
+          data-testid="recipe-category-slideshow-pause"
           className={classes.imagePaused}
           src="./images/pause-circle.svg"
           alt="Pause"
@@ -48,20 +50,20 @@ function RecipeCategory(props: RecipeCategoryProps) {
   }
 
   return (
-    <div className={classes.gallery}>
-      <div className={classList.join(' ')}>
+    <div data-testid="recipe-category" className={classes.gallery}>
+      <div data-testid="recipe-category-gallery-photos" className={classList.join(' ')}>
         {props.photos.map((image, index) => {
           return <img key={index} src={image.imageSource} alt={image.imageTitle} />
         })}
       </div>
-      <div className={classes.footer}>
-        <div className={classes.categoryName}>
+      <div data-testid="recipe-category-footer" className={classes.footer}>
+        <div data-testid="recipe-category-footer-text" className={classes.categoryName}>
           {new Intl.NumberFormat().format(props.recipesCount)} {props.category}
         </div>
         <div className={classes.slideshowButton}>
           {slideshowMediaImage && slideshowMediaImage}
           <Link href={`/categories/${props.id}`}>
-            <a className={classes.footerLink}>
+            <a data-testid="recipe-category-footer-link" className={classes.footerLink}>
               <img className={classes.browseRecipes} src="./images/btn-browse-recipes.svg" alt="Browse Recipes" />
             </a>
           </Link>

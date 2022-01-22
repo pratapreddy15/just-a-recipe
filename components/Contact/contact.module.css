@@ -1,4 +1,5 @@
 .contact {
+  padding-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,28 +14,41 @@
 
 .form {
   font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }
 
 .formControl {
   display: flex;
   flex-direction: column;
   margin: 2.5rem 0;
+  width: 100%;
 }
 
 .formLabel {
 }
 
 .formInput {
-  width: 20rem;
+  /* width: 20rem; */
+  max-width: 20rem;
   padding: 0.5rem;
   margin-top: 10px;
 }
 
 .textarea {
   margin-top: 10px;
-  width: 40rem;
+  /* width: 40rem; */
+  max-width: 40rem;
   height: 15rem;
   resize: none;
+}
+
+.formAction {
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .formButton {
@@ -84,4 +98,10 @@
 .formButton[type='reset']:active {
   border: 2px solid #6d6875;
   outline: none;
+}
+
+@media screen and (max-width: 610px) {
+  .formHeader {
+    font-size: 1rem;
+  }
 }

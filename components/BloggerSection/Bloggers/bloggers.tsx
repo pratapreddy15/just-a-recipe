@@ -18,9 +18,11 @@ function Bloggers(props: BloggersProps) {
   const { bloggers } = props
 
   return (
-    <section className={classes.bloggers}>
-      <h3 className={classes.header}>Credit to bloggers</h3>
-      <div className={classes.grid}>
+    <section data-testid="bloggers" className={classes.bloggers}>
+      <h3 data-testid="bloggers-header" className={classes.header}>
+        Credit to bloggers
+      </h3>
+      <div data-testid="bloggers-grid" className={classes.grid}>
         {bloggers.map((blogger, i) => (
           <BloggerCard
             key={i}
@@ -35,7 +37,7 @@ function Bloggers(props: BloggersProps) {
       </div>
       <div className={classes.linkTopFoodBlogs}>
         <Link href="https://blog.feedspot.com/indian_food_blogs/?_src=search">
-          <a target="_blank" rel="noreferrer">
+          <a data-testid="bloggers-top-food-blogs-link" target="_blank" rel="noreferrer">
             See top 100 indian food blogs <div className={classes.rightArrow}>&#8594;</div>
           </a>
         </Link>

@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths, GetStaticPathsContext, GetStaticPropsCo
 import path from 'path'
 
 import { Recipes } from '../../components'
-import { getFileContent } from '../../utils/utilities'
+import { getFileContent } from '../../utils/server'
 import { RecipeDetail, RecipeCategory } from '../../types/recipe'
 
 function CategoryPage({ recipes, totalRecipes }: { recipes: RecipeDetail[]; totalRecipes: number }) {
