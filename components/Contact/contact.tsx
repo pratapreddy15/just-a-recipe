@@ -38,7 +38,7 @@ function Contact() {
           }
         })
         .catch((err) => {
-          // console.error(err)
+          console.error(err)
           setFeedbackSubmissionStatus(FEEDBACK_SUBMISSION_STATUS.ERROR)
         })
     }
