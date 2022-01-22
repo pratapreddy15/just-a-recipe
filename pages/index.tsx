@@ -39,7 +39,7 @@ const HomePage: NextPage<HomePageProps> = (props: HomePageProps) => {
     appContext.setActivePage(APP_PAGES.HOME)
   }, [])
   const categoriesGallery: RecipeCategoryGallery[] = props.featuredCategories.map((category) => {
-    const photoDirectoryName = category.name.replace(' ', '-')
+    const photoDirectoryName = category.name.replace(' ', '-').toLowerCase()
     return {
       id: category.id,
       name: category.name,
