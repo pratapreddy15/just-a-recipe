@@ -43,10 +43,8 @@
   color: #fff;
   position: absolute;
   font-size: 1rem;
-  bottom: 1rem;
+  bottom: 3rem;
   right: 1rem;
-  display: flex;
-  flex-direction: column;
 }
 
 @media only screen and (min-width: 360px) {
@@ -55,7 +53,10 @@
   }
 
   .credit {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
   }
 }
 
