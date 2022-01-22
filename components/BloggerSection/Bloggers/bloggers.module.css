@@ -1,5 +1,5 @@
 .bloggers {
-  margin: 2rem 6rem;
+  margin: 1rem 2rem;
 }
 
 .header {
@@ -36,4 +36,16 @@
 
 .linkTopFoodBlogs a:hover .rightArrow {
   transform: translateX(-2px);
+}
+
+@media only screen and (min-width: 360px) {
+  .bloggers {
+    margin: 2rem 6rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .bloggers {
+    margin: 2rem 6rem;
+  }
 }
