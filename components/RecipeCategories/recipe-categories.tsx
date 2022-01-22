@@ -43,7 +43,7 @@ function RecipeCategories(props: { categoriesGallery: RecipeCategoryGallery[]; a
                         <div>
                           <Link href={`/categories/${cat.id}`}>
                             <a className={classes.footerLink}>
-                              <img src="./images/btn-browse-recipes.svg" alt="Browse Recipes" />
+                              <img src="/images/btn-browse-recipes.svg" alt="Browse Recipes" />
                             </a>
                           </Link>
                         </div>

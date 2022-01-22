@@ -80,13 +80,12 @@ function Picklist(props: PicklistProps) {
   return (
     <div data-testid="picklist" className={classes.picklist} data-expanded={state.isPicklistExpanded}>
       <div className={classes.selectedItem} data-testid="picklist-toggler" onClick={togglePicklistItemsVisibility}>
-        <div data-testid="picklist-selected-options-count" className={classes.selectedItemText}>{`${
-          state.selectedItemsCount === 0
+        <div data-testid="picklist-selected-options-count" className={classes.selectedItemText}>{`${state.selectedItemsCount === 0
             ? props.noSelectedItemText || 'None selected'
             : `${state.selectedItemsCount} Selected`
-        }`}</div>
+          }`}</div>
         <div className={classes.icon}>
-          <img src="../../images/down-arrow.svg" alt="Expand or collapse picklist" />
+          <img src="/images/down-arrow.svg" alt="Expand or collapse picklist" />
         </div>
       </div>
       <ul data-testid="picklist-options" className={classes.picklist__list}>

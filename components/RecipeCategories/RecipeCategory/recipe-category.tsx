@@ -30,7 +30,7 @@ function RecipeCategory(props: RecipeCategoryProps) {
         <img
           data-testid="recipe-category-slideshow-play"
           className={classes.imagePlay}
-          src="./images/play-circle.svg"
+          src="/images/play-circle.svg"
           alt="Play"
           onClick={() => {
             setSlideshowState(SLIDESHOW_STATE.PLAYING)
@@ -40,7 +40,7 @@ function RecipeCategory(props: RecipeCategoryProps) {
         <img
           data-testid="recipe-category-slideshow-pause"
           className={classes.imagePaused}
-          src="./images/pause-circle.svg"
+          src="/images/pause-circle.svg"
           alt="Pause"
           onClick={() => {
             setSlideshowState(SLIDESHOW_STATE.PAUSED)
@@ -64,7 +64,7 @@ function RecipeCategory(props: RecipeCategoryProps) {
           {slideshowMediaImage && slideshowMediaImage}
           <Link href={`/categories/${props.id}`}>
             <a data-testid="recipe-category-footer-link" className={classes.footerLink}>
-              <img className={classes.browseRecipes} src="./images/btn-browse-recipes.svg" alt="Browse Recipes" />
+              <img className={classes.browseRecipes} src="/images/btn-browse-recipes.svg" alt="Browse Recipes" />
             </a>
           </Link>
         </div>
