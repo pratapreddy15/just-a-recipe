@@ -36,3 +36,13 @@
   border: none;
   outline: none;
 }
+
+@media screen and (max-width: 610px) {
+  .toastr {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+}
