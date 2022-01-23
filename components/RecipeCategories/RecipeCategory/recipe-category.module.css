@@ -67,8 +67,9 @@
 .categoryName {
   color: #fff;
   text-transform: uppercase;
-  margin: 0.2rem 1rem;
-  white-space: nowrap;
+  margin: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  max-width: 8.5rem;
 }
 
 .slideshowButton {
@@ -90,13 +91,23 @@
   margin: 0 5px;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (min-width: 360px) {
   .categoryName {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    margin: 0.2rem 1rem;
+    white-space: nowrap;
   }
 
   .slideshowButton img {
     height: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .categoryName {
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
