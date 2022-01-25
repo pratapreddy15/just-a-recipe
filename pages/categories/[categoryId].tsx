@@ -1,11 +1,23 @@
+import { useContext, useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths, GetStaticPathsContext, GetStaticPropsContext } from 'next'
 import path from 'path'
 
 import { Recipes } from '../../components'
 import { getFileContent } from '../../utils/server'
+import { APP_PAGES } from '../../constants/pages'
+import { AppContext, NAVIGATION_MENU_STATES } from '../../context/context-provider'
 import { RecipeDetail, RecipeCategory } from '../../types/recipe'
 
 function CategoryPage({ recipes, totalRecipes }: { recipes: RecipeDetail[]; totalRecipes: number }) {
+  const appContext = useContext(AppContext)
+
+  useEffect(() => {
+    if (appContext.navigationMenuState === NAVIGATION_MENU_STATES.OPEN) {
+      appContext.setNavigationMenuState(NAVIGATION_MENU_STATES.CLOSED)
+    }
+    appContext.setActivePage(APP_PAGES.CATEGORIES)
+  }, [])
+
   return <Recipes recipes={recipes} totalRecipes={totalRecipes} />
 }
 

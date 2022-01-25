@@ -71,7 +71,7 @@ function Navigation() {
           className={[
             classes['navigation__list--item'],
             appContext.activePage === APP_PAGES.CONTACT ? classes.active : ''
-          ].filter(className => !!className).join('')}
+          ].filter(className => !!className).join(' ')}
         >
           <Link href="/contact">Contact</Link>
         </li>
